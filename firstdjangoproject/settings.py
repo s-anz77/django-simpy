@@ -131,4 +131,5 @@ MAILERS = {
 }
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Railway injects this variable when a Volume is mounted. Locally, use ./media.
+MEDIA_ROOT = Path(os.environ.get('RAILWAY_VOLUME_MOUNT_PATH', BASE_DIR / 'media'))
