@@ -21,3 +21,20 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+class Messages(models.Model):
+    title = models.CharField('Тема письма', max_length=100, unique=False)
+    email = models.EmailField('Почта отправителя')
+    text = models.TextField('Текст письма')
+
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("contacts")
+    
+
+    class Meta:
+        verbose_name = 'Письмо'
+        verbose_name_plural = 'Письма'

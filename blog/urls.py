@@ -10,5 +10,6 @@ urlpatterns = [
     path('news/<int:pk>/update', views.UpdateNewsView.as_view(), name='news-update'),
     path('news/<int:pk>/delete', views.DeleteNewsView.as_view(), name='news-delete'),
     path('uslugi', views.uslugi, name='uslugi'),
+    path('contacts', views.contacts, name='contacts'),
     path('about', views.about, name='about'),
 ]

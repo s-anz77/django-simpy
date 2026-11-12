@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Контакты{% endblock %}
+{% block content %}
+    <main class="addArticleMain">
+        <div class="addArticle">
+            <h1>Контакты</h1>
+            <form method="POST" class="addArticleForm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Отправить письмо</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

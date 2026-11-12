@@ -4,6 +4,8 @@ from .models import News
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
+from .forms import MessageForm
+from django.shortcuts import redirect, render
 
 class ShowNewsView(ListView):
     model = News
@@ -88,6 +90,19 @@ class DeleteNewsView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def uslugi(request):
     return render(request, 'blog/uslugi.html')
+
+def contacts(request):
+
+    if request.method == "POST":
+        form = MessageForm(request.POST)
+
+        if form.is_valid():
+            form.save()            
+            messages.success(request, "Сообщение отправлено!")
+            return redirect("contacts")
+    else:
+        form = MessageForm()
+    return render(request, 'blog/contacts.html', {"form": form})
 
 def about(request):
     return render(request, 'blog/about.html')

@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k#7f5ij!iwoa0)1u3hc+&yja$4prliv5*e4j*xsq0#s8#9wo!y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -125,10 +125,12 @@ LOGIN_URL = 'user'
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
 MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+    "default": {
+        "BACKEND": "django.core.mail.backends.console.EmailBackend",
     },
 }
+
+# Media
 
 MEDIA_URL = '/media/'
 # Railway injects this variable when a Volume is mounted. Locally, use ./media.
