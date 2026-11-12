@@ -6,27 +6,35 @@ from django.contrib.auth.forms import UserCreationForm
 class UserRegisterForm(UserCreationForm):
     username = forms.CharField(
         label='Введите логин', 
-        required=True, 
-        help_text='Нельзя вводить символы: @, #, &',
-        widget=forms.TextInput(attrs={'placeholder': 'Придумайте логин'})
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Придумайте логин', "autocomplete": "off"})
         )
     email = forms.CharField(
         label='Введите Email', 
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Ваш Email'})
+        widget=forms.TextInput(attrs={'placeholder': 'Ваш Email', "autocomplete": "off"})
         )
     # users = forms.ModelChoiceField(queryset=User.objects.all())
     password1 = forms.CharField(
         label='Введите пароль', 
         required=True, 
-        widget=forms.PasswordInput(attrs={'placeholder': 'Придумайте пароль'}), 
-        help_text='Пароль не должен быть коротким и простым'
+        widget=forms.PasswordInput(attrs={'placeholder': 'Придумайте пароль', "autocomplete": "new-password"}), 
         )
     password2 = forms.CharField(
         label='Подтвердите пароль', 
         required=True, 
-        widget=forms.PasswordInput(attrs={'placeholder': 'Подтвердите пароль'})
+        widget=forms.PasswordInput(attrs={'placeholder': 'Подтвердите пароль', "autocomplete": "new-password"})
         )
+
+    def clean_email(self):
+        email = self.cleaned_data["email"].strip()
+
+        if User.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError(
+                "Пользователь с такой почтой уже зарегистрирован."
+            )
+
+        return email
 
     class Meta:
         model = User

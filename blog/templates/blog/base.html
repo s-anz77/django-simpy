@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+    <script src="{% static 'blog/main.js' %}" defer></script>
 </head>
 <body>
     <header>
@@ -29,7 +30,7 @@
                         <a href="{% url 'profile' %}" class='{% if request.resolver_match.url_name == 'profile' %}active{% endif %} sign sign-up'>Профиль</a>
                         <form action='{% url 'exit' %}' method='POST' class="exit-form sign">
                             {% csrf_token %}
-                            <button type='submit' class='sign sign-in'>Выйти</button>
+                            <button type='submit'><a class='sign sign-in'>Выйти</a></button>
                         </form>        
                 {% endif %}
                 </div>

@@ -4,12 +4,20 @@
 {% block content %}
     <main class="registerMain">
         <div class="register">
-            <h1>Страница регистрации</h1>
-            <form method="POST" class="registerForm">
+            <h2>Страница регистрации</h2>
+            <form method="POST" class="registerForm" autocomplete="off">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {% for field in form %}
+                    <div>
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            {{ field.errors }}
+                        {% endif %}
+                    </div>
+                {% endfor %}
                 <button type="submit">Зарегистрироваться</button>
-                <p>Уже зарегистрированы? <a class='alt' href="{% url 'user' %}">Войти в личный кабинет</a></p>
+                <p class='altbut'>Уже зарегистрированы? <a class='alt' href="{% url 'user' %}">Войти в личный кабинет</a></p>
             </form>
         </div>
     </main>

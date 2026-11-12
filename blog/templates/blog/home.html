@@ -13,8 +13,8 @@
                 <div class="article-info">
                     <img src="{{ post.avtor.profile.img.url }}" alt="{{ post.avtor.username }}">
                     <div>
-                        <p><b>Публикация: </b>{{ post.date|date:"d E Y года в H:i:s"}}</p>
-                        <p><b>Автор: </b><a href='{% url 'user-news' post.avtor %}' class='avtor'>{{ post.avtor }}</a></p>
+                        <p>Публикация: {{ post.date|date:"d E Y года в H:i:s"}}</p>
+                        <p>Автор: <a href='{% url 'user-news' post.avtor %}' class='avtor'>{{ post.avtor }}</a></p>
                     </div>
                 </div>
             </div>

@@ -3,8 +3,9 @@
 {% block title %}Кабинет пользователя{% endblock %}
 {% block content %}
     <div class='profile'>
-        <h2>Кабинет пользователя</h2>
+        
         <div class='profile1'>
+            <h2>Кабинет пользователя</h2>
             <div class='profile-top'>
                 <div class='image'>
                 <img src="{{ user.profile.img.url }}" alt="Фото пользователя {{ user.username }}">
@@ -28,7 +29,10 @@
                         {{ field.errors }}
                     </p>
                 {% else %}
-                    {{ field.as_field_group }}
+                    <p>
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </p>
                 {% endif %}
             {% endfor %}
             <button type="submit">Обновить</button>

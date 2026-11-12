@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ------------------------------------------------------------ */
+/* -----------------------Цветовая схема----------------------- */
+/* ------------------------------------------------------------ */
+
+:root {
+    --primary: hsl(218, 40%, 4%);
+    --messagebar: hsl(218, 40%, 10%);
+    --background: hsl(218, 40%, 7%);
+    --1: #3A668B;
+    --2: #437FB1;
+    --3: #cbd5e1;
+    --text-active: hsl(208, 100%, 97%);
+    --text-inactive: hsl(0, 0%, 48%);
+    --conter-color: hsl(0, 53%, 58%);
+}
+
+/* ------------------------------------------------------------ */
 /* ------------------------Общие стили------------------------- */
 /* ------------------------------------------------------------ */
 
@@ -8,7 +24,7 @@
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
-    color:aliceblue;
+    color:var(--text-active);
 }
 
 a {
@@ -16,9 +32,18 @@ a {
     color: inherit;
 }
 
+button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 body {
-    background-color: rgb(252, 236, 216);
-    color: rgb(4, 74, 74);
+    background-color: var(--background);
+    color: var(--primary);
 }
 
 /* ------------------------------------------------------------ */
@@ -33,18 +58,48 @@ header {
     z-index: 1000;
 }
 
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        var(--1),
+        var(--2),
+        var(--conter-color),
+        var(--2),
+        var(--1)
+    );
+    background-size: 300% 100%;
+    animation: color-wave 3s ease-in-out infinite alternate;
+}
+
+@keyframes color-wave {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: 100% 50%;
+    }
+}
+
 .header {
     display: flex;
     height: 80px;
-    background-color: rgb(4, 74, 74);
+    background-color: var(--primary);
     padding: 10px 15%;
     text-align: center;
     align-items: center;
+    border-bottom: 1px solid var(--text-inactive);
 }
 
 .logo {
     width: 20%;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
     justify-self: start;
     text-align: left;
@@ -71,11 +126,11 @@ header {
 
 .navbar .nav1 {
     justify-content: start;
-    color: rgb(123, 123, 123);
+    color: var(--text-inactive);
 }
 
 .navbar .nav1 .adminka:hover {
-    color: indianred;
+    color: var(--conter-color);
     transition: all .5s ease;
 }
 
@@ -87,6 +142,10 @@ header {
     justify-content: end;
 }
 
+.navbar .nav2 * {
+    font-size: 14px !important;
+}
+
 .navbar .nav2 *:not(:last-child) {
     margin-right: 3%;
 }
@@ -94,17 +153,17 @@ header {
 .navbar .sign-up {
     background-color:none;
     padding: 5px 10px;
-    border: 1px solid aliceblue;
+    border: 1px solid var(--text-inactive);
     border-radius: 5px;
-    color: aliceblue;
+    color: var(--text-inactive);
 }
 
 .navbar .sign-in {
-    background-color: rgb(4, 74, 74);
+    background-color: var(--primary);
     padding: 5px 10px;
     border: 1px solid indianred;
     border-radius: 5px;
-    color: indianred;
+    color: var(--conter-color);
     font-size: 16px;
 }
 
@@ -117,13 +176,14 @@ button.sign.sign-in {
     background-color: none;
     padding: 5px 10px;
     border-radius: 5px;
-    color: aliceblue;
-    border: 1px solid aliceblue;
+    color: var(--text-inactive);
+    border: 1px solid var(--text-inactive);
 }
 
 .navbar .add-art:hover {
-    background-color: rgb(7, 125, 125);
-    border: 1px solid rgb(7, 125, 125);
+    background-color: var(--text-active);
+    border: 1px solid var(--text-active);
+    color: var(--primary);
     transition: all .5s ease;
 }
 
@@ -132,42 +192,43 @@ button.sign.sign-in:hover {
 }
 
 .navbar .nav1 *:hover {
-    color: aliceblue;
+    color: var(--text-active);
     transition: all .5s ease;
 }
 
 .navbar .sign-up:hover {
-    background-color: aliceblue;
-    color: rgb(4, 74, 74);
+    background-color: var(--text-active);
+    color: var(--primary);
     transition: all .5s ease;
 }
 
 .navbar .sign-in:hover {
-    background-color: indianred;
-    color: aliceblue;
+    background-color: var(--conter-color);
+    color: var(--text-active);
     transition: all .5s ease;
 }
 
 .navbar .nav1 .active {
-    color: aliceblue;
+    color: var(--text-active);
     transition: all .5s ease;
 }
 
 .navbar .nav2 .add-art.active {
-    background-color: rgb(7, 125, 125);
-    border: 1px solid rgb(7, 125, 125);
+    background-color: var(--text-active);
+    border: 1px solid var(--text-active);
+    color: var(--primary);
     transition: all .5s ease;
 }
 
 .navbar .nav2 .sign-up.active {
-    background-color: aliceblue;
-    color: rgb(4, 74, 74);
+    background-color: var(--text-active);
+    color: var(--primary);
     transition: all .5s ease;
 }
 
 .navbar .nav2 .sign-in.active {
-    background-color: indianred;
-    color: aliceblue;
+    background-color: var(--conter-color);
+    color: var(--text-active);
     transition: all .5s ease;
 }
 
@@ -177,7 +238,7 @@ button.sign.sign-in:hover {
 
 .messagesbar {
     margin-top: 100px;
-    background-color: rgb(67, 156, 156);
+    background-color: var(--1);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -193,7 +254,7 @@ button.sign.sign-in:hover {
 }
 
 .messages:has(*) {
-    height: 40px;
+    height: 30px;
 }
 
 /* ------------------------------------------------------------ */
@@ -230,7 +291,7 @@ main h3 {
 }
 
 main a:not(.alt, .art-ref, .art-del) {
-    background-color: indianred;
+    background-color: var(--conter-color);
     font-size: 20px;
     padding: 10px 20px;
     border-radius: 5px;
@@ -238,7 +299,7 @@ main a:not(.alt, .art-ref, .art-del) {
 }
 
 .alt {
-    color: indianred !important;
+    color: var(--conter-color) !important;
     text-decoration: underline;
 }
 
@@ -253,19 +314,28 @@ main a:not(.alt, .art-ref, .art-del) {
 }
 
 .articles * {
-    color: rgb(4, 74, 74);
+    color: var(--text-active);
+}
+
+.articles h3 {
+    color: var(--text-inactive);
 }
 
 .article {
-    background-color: rgba(246, 241, 236, 0.781);
+    background-color: var(--primary);
     padding: 10px 20px;
-    border: 1px solid rgb(4, 74, 74);
+    border: 1px dashed var(--text-inactive);
     border-radius: 5px;
     margin-bottom: 1%;
 }
 
 .article:hover {
-    transform: scale(1.025);
+    border: 1px dashed var(--text-active);
+    transition: all .5s ease;
+}
+
+.article:hover h3 {
+    color: var(--text-active);
     transition: all .5s ease;
 }
 
@@ -277,19 +347,27 @@ main a:not(.alt, .art-ref, .art-del) {
     margin-bottom: 1%;
 }
 
+.article h3 {
+    font-size: 30px;
+}
+
 .article p {
     font-style: italic;
     margin-bottom: 1%;
+    color: var(--text-inactive);
 }
 
 .article hr {
     margin: 1% 0;
-    border: 1px solid rgba(4, 74, 74, 0.336)
+    border: 1px dashed var(--text-inactive);
 }
 
 .article img{
+    background-color: var(--text-active);
     height: 40px;
     width: auto;
+    border: 1px solid var(--text-inactive);
+    border-radius: 5px;
 }
 
 .article .article-info {
@@ -297,7 +375,7 @@ main a:not(.alt, .art-ref, .art-del) {
 }
 
 .article .article-info a.avtor {
-    background-color: rgba(246, 241, 236, 0.781);
+    background-color: var(--background);
     font-size: 16px;
     text-decoration: underline;
     border: none;
@@ -317,13 +395,14 @@ main a:not(.alt, .art-ref, .art-del) {
 .article a.alt {
     font-size: 16px;
     font-weight: 500;
+    color: var(--text-inactive);
     text-decoration: none;
     display: inline-block;
 }
 
 .article a.alt:hover {
     transform: scale(1.05);
-    color: rgb(208, 36, 36) !important;
+    color: var(--conter-color) !important;
     transition: all .5s ease;
 }
 
@@ -336,33 +415,31 @@ main a:not(.alt, .art-ref, .art-del) {
 
 .articles .article-btns .but-ref, .but-del {
     background-color: none;
-    
-    
     border-radius: 5px;
     padding: 6px 12px;
     font-size: 14px;
 }
 
 .articles .article-btns .but-ref {
-    border: 1px solid rgb(4, 74, 74);
-    color:rgb(4, 74, 74);
+    border: 1px solid var(--text-inactive);
+    color:var(--text-inactive);
 }
 
 .articles .article-btns .but-del {
-    border: 1px solid indianred;
-    color:indianred;
+    border: 1px solid var(--conter-color);
+    color:var(--conter-color);
 }
 
 .articles .article-btns .but-ref:hover {
-    background-color: rgb(4, 74, 74);
-    color: aliceblue;
+    background-color: var(--text-active);
+    color: var(--primary);
     cursor: pointer;
     transition: all .5s ease;
 }
 
 .articles .article-btns .but-del:hover {
-    background-color: indianred;
-    color: aliceblue;
+    background-color: var(--conter-color);
+    color: var(--text-active);
     cursor: pointer;
     transition: all .5s ease;
 }
@@ -377,27 +454,28 @@ main a:not(.alt, .art-ref, .art-del) {
 .articles .paginator a {
     font-size: 16px;
     padding: 3px 1%;
-    background-color: rgba(246, 241, 236, 0.781);
+    background-color: var(--primary);
     font-weight: 500;
-    color: rgb(4, 74, 74);
-    border: 1px solid rgb(4, 74, 74);
+    color: var(--text-active);
+    border: 2px solid var(--messagebar);
     border-radius: 5px;
     margin-right: 1%;
 }
 
 .articles .paginator a:not(.inactive):hover{
-    background-color: rgb(4, 74, 74);
-    color: aliceblue;
+    background-color: var(--messagebar);
+    color: var(--text-active);
     transition: all .5s ease;
+}
+
+.articles .paginator a.inactive {
+    background-color: var(--messagebar);
+    color: var(--text-inactive);
+    border: 1px solid var(--primary);
 }
 
 .articles .paginator a.inactive:hover {
     cursor: default;
-}
-
-.articles .paginator a.inactive {
-    color: rgba(4, 74, 74, 0.46);
-    border: 1px solid rgba(4, 74, 74, 0.46);
 }
 
 /* ------------------------------------------------------------ */
@@ -410,8 +488,76 @@ main a:not(.alt, .art-ref, .art-del) {
     width: 70%;
 }
 
+.uslugi #blocks.usl {
+    margin-left: 15%;
+    display: block;
+    width: 70%;
+}
+
+.uslugi #blocks.usl .block {
+    width: 95%;
+    padding: 1% 2%;
+    margin-bottom: 2%;
+}
+
+.uslugi #blocks.usl .block * {
+    margin: 1% 0;
+}
+
+#blocks .block {
+    width: 31%;
+}
+
+#blocks .block hr {
+    margin: 5% 0;
+    border: 1px dashed var(--text-inactive);
+}
+
 #blocks *:not(:last-child) {
-    margin-right: 5%;
+    margin-right: 3%;
+}
+
+.uslugi {
+    align-self: start;
+}
+
+.uslugi h2 {
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.uslugi .block {
+    background-color: var(--primary);
+    border: 1px dashed var(--text-inactive);
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.uslugi .block:hover {
+    transition: all .5s ease;
+    cursor: default;
+    border: 1px dashed var(--text-active);
+}
+
+.uslugi .block:hover h3 {
+    color: var(--text-active);
+    transition: all .5s ease;
+}
+
+.uslugi .block:hover hr {
+    border: 1px dashed var(--text-active) !important;
+    transition: all .5s ease;
+}
+
+.uslugi .block h3 {
+    text-align: center;
+    margin-bottom: 3%;
+    color: var(--text-inactive);
+}
+
+.uslugi p {
+    text-align: center;
+    color: var(--text-inactive);
 }
 
 /* ------------------------------------------------------------ */
@@ -419,11 +565,20 @@ main a:not(.alt, .art-ref, .art-del) {
 /* ------------------------------------------------------------ */
 
 .registerMain {
+    width: 60%;
     height: 650px;
     display: flex;
     justify-content: center;
     align-items: start;
-    color: rgb(4, 74, 74);
+}
+
+.registerMain .register {
+    width: 90%;
+    background-color: var(--primary);
+    margin-top: 7%;
+    padding: 2%;
+    border: 1px dashed var(--text-inactive);
+    border-radius: 5px;
 }
 
 .registerMain .exit p {
@@ -431,58 +586,100 @@ main a:not(.alt, .art-ref, .art-del) {
     text-align: center;
 }
 
+.registerMain .registerForm p.altbut {
+    font-size: 14px;
+}
+
 .registerMain .exit h2 {
-    margin-top: 10%;
+    margin-top: 1%;
     margin-bottom: 2%;
 }
 
-.registerMain * {
-    color: rgb(4, 74, 74);
+.registerMain h2 {
+    width: 100%;
+    color: var(--text-inactive);
 }
 
-.registerMain h1 {
-    font-size: 60px;
-    margin: 50px 0px;
+.registerMain .registerForm p, .registerMain .registerForm div {
+    margin-bottom: 2%;
 }
 
 .registerMain .registerForm label {
     display: block;
-    margin-top: 20px;
     margin-bottom: 1%;
     font-size: 14px;
+    color: var(--text-inactive);
+}
+
+.registerMain .register .altbut, .alt {
+    color: var(--text-inactive) !important;
+}
+
+.registerMain .register:hover h2,
+.registerMain .register:hover label,
+.registerMain .register:hover .altbut {
+    color: var(--text-active) !important;
+    transition: all .5s ease;
+}
+
+.registerMain .register:hover .alt {
+    color: var(--conter-color) !important;
+    transition: all .5s ease;
 }
 
 .registerMain .registerForm input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    color: var(--text-active);
+    background-color: var(--background);
+    border: 1px solid var(--text-inactive);
     border-radius: 6px;
     box-sizing: border-box;
+}
+
+input:autofill,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-active) !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--background) inset !important;
+    caret-color: var(--text-active);
 }
 
 .registerMain .registerForm button {
     padding: 10px 16px;
     width: 100%;
-    border: 0;
+    border: 1px solid var(--text-inactive);
     border-radius: 6px;
-    background: indianred;
-    color: aliceblue;
+    background: var(--background);
+    color: var(--text-inactive);
     cursor: pointer;
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
+}
+
+.registerMain .register:hover button {
+    border: 1px solid var(--conter-color);
+    background: var(--background);
+    color: var(--conter-color);
+    transition: all .5s ease;
 }
 
 .registerMain .registerForm button:hover {
-    background: rgb(202, 38, 38);
+    background: var(--conter-color);
+    color: var(--text-active);
     cursor: pointer;
     transition: all .5s ease;
-
 }
 
-.registerMain .registerForm span {
-    margin-top: 0;
+.registerMain .registerForm .errorlist {
+    list-style: none;
+}
+
+.registerMain .registerForm .errorlist li {
+    color: var(--conter-color);
     font-size: 14px;
-    color: gray;
+    margin-top: 1%;
 }
 
 /* ------------------------------------------------------------ */
@@ -493,34 +690,40 @@ main a:not(.alt, .art-ref, .art-del) {
     display: inline-block;
 }
 
-.profile * {
-    color: rgb(4, 74, 74);
-}
-
 .profile {
     width: 60%;
 }
 
 .profile h2 {
     margin-top: 0;
+    color: var(--text-inactive);
 }
 
 .profile .profile1 h3 {
     text-align: center;
+    color: var(--text-inactive);
+    font-size: 24px;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .profile .profile1 {
-    border: 2px solid rgb(4, 74, 74); 
+    border: 1px solid var(--text-inactive); 
     border-radius: 10px;
     padding: 2%;
-    background-color: rgb(255, 246, 236);
+    background-color: var(--primary);
     width: 96%;
+}
+
+.profile .profile1:hover {
+    border: 1px solid var(--text-active);
+    transition: all .5s ease;
 }
 
 .profile .image {
     height: 70px;
     width: 70px;
-    border: 1px solid rgb(4, 74, 74);
+    border: 1px solid var(--text-inactive);
     overflow: hidden;
     border-radius: 10px;
 }
@@ -541,25 +744,35 @@ main a:not(.alt, .art-ref, .art-del) {
     margin-left: 2%;
 }
 
+.updateForm p {
+    margin-bottom: 2%;
+}
+
+.profile-info p b {
+    color: var(--text-inactive);
+}
+
 .profile-info *:not(:last-child) {
     margin-bottom: 5%;
 }
 
 .profile hr {
     margin: 2% 0;
-    border: 1px solid rgb(4, 74, 74);
+    border: 1px solid var(--text-inactive);
 }
 
 .updateForm label {
     display: block;
-    margin-top: 20px;
+    margin-bottom: 1%;
     font-size: 14px;
+    color: var(--text-inactive);
 }
 
 .updateForm input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    background-color: var(--background);
+    border: 1px solid var(--text-inactive);
     border-radius: 6px;
     box-sizing: border-box;
 }
@@ -567,20 +780,11 @@ main a:not(.alt, .art-ref, .art-del) {
 .updateForm button {
     padding: 10px 16px;
     width: 100%;
-    border: 0;
+    border: 1px solid var(--text-inactive);
     border-radius: 6px;
-    background: indianred;
-    color: aliceblue;
+    background: var(--primary);
+    color: var(--text-inactive);
     cursor: pointer;
-    margin-top: 30px;
-    margin-bottom: 1%px;
-}
-
-.updateForm button:hover {
-    background: rgb(202, 38, 38);
-    cursor: pointer;
-    transition: all .5s ease;
-
 }
 
 .updateForm span {
@@ -589,8 +793,32 @@ main a:not(.alt, .art-ref, .art-del) {
     color: gray;
 }
 
+.updateForm input[type="file"] {
+    color: var(--text-inactive);
+    padding: 1%;
+    width: auto;
+}
+
+.updateForm input[type="file"]::file-selector-button {
+    background-color: var(--primary);
+    color: var(--text-inactive);
+    border: 1px dashed var(--text-inactive);
+    border-radius: 5px;
+    padding: 2%;
+    margin-right: 5%;
+    font-size: 14px;
+}
+
+.updateForm input[type="file"]::file-selector-button:hover {
+    color: var(--text-active);
+    cursor: pointer;
+    border: 1px solid var(--text-active);
+    transition: all .5s ease;
+}
+
 .updateForm select.sex-select {
-    border: 1px solid rgb(4, 74, 74);
+    border: 1px solid var(--text-inactive);
+    background-color: var(--background);
     border-radius: 6px;
     padding: 8px;
 }
@@ -603,14 +831,50 @@ main a:not(.alt, .art-ref, .art-del) {
     width: 3%;
 }
 
+.updateForm input[type="checkbox"] {
+    accent-color: var(--background);
+    appearance: none;
+    margin-right: 1%;
+}
+
+.updateForm input[type="checkbox"]:checked {
+    border-color: var(--text-active);
+}
+
+.updateForm input[type="checkbox"]:checked::after {
+    border-color: var(--text-active);
+}
+
 .updateForm .privacy label {
     width: 97%;
+    display: flex;
+    align-items: center;
+}
+
+.profile:hover h2, 
+.profile:hover label, 
+.profile:hover h3 {
+    color: var(--text-active) !important;
+    transition: all .5s ease;
+}
+
+.profile:hover button {
+    border: 1px solid var(--conter-color);
+    background: var(--primary);
+    color: var(--conter-color);
+    transition: all .5s ease;
+}
+
+.updateForm button:hover {
+    background: var(--conter-color);
+    color: var(--text-active);
+    cursor: pointer;
+    transition: all .5s ease;
 }
 
 /* ------------------------------------------------------------ */
 /* ----------------Стили страницы создания статьи-------------- */
 /* ------------------------------------------------------------ */
-
 
 .addArticleMain {
     margin-top: 4%;
@@ -619,25 +883,32 @@ main a:not(.alt, .art-ref, .art-del) {
     display: flex;
     justify-content: center;
     align-items: start;
-    color: rgb(4, 74, 74);
 }
 
 .addArticle {
     width: 100%;
+    border: 1px dashed var(--text-inactive);
+    border-radius: 5px;
+    padding: 2%;
+    background-color: var(--primary);
 }
 
-.addArticleMain * {
-    color: rgb(4, 74, 74);
+.addArticle h2 {
+    color: var(--text-inactive);
 }
 
-.addArticleMain h1 {
-    font-size: 60px;
-    margin: 50px 0px;
-    text-align: center;
+.addArticle:hover {
+    border: 1px dashed var(--text-active);
+    transition: all .5s ease;
+}
+
+.addArticle:hover h2 {
+    color: var(--text-active);
+    transition: all .5s ease;
 }
 
 .addArticleMain .errorlist li {
-    color: indianred;
+    color: var(--conter-color);
 }
 
 .addArticleMain .addArticleForm label {
@@ -645,12 +916,19 @@ main a:not(.alt, .art-ref, .art-del) {
     margin-top: 3%;
     margin-bottom: 1%;
     font-size: 14px;
+    color: var(--text-inactive);
+}
+
+.addArticle:hover label {
+    color: var(--text-active);
+    transition: all .5s ease;
 }
 
 .addArticleMain .addArticleForm input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    background-color: var(--background);
+    border: 1px solid var(--text-inactive);
     border-radius: 6px;
     box-sizing: border-box;
 }
@@ -658,7 +936,8 @@ main a:not(.alt, .art-ref, .art-del) {
 .addArticleMain .addArticleForm textarea {
     width: calc(100% - 21px);
     resize: none;
-    border: 1px solid #ccc;
+    background-color: var(--background);
+    border: 1px solid var(--text-inactive);
     border-radius: 6px;
     padding: 10px;
 }
@@ -666,17 +945,25 @@ main a:not(.alt, .art-ref, .art-del) {
 .addArticleMain .addArticleForm button {
     padding: 10px 16px;
     width: 100%;
-    border: 0;
+    border: 1px solid var(--text-inactive);
     border-radius: 6px;
-    background: indianred;
-    color: aliceblue;
+    background: var(--primary);
+    color: var(--text-inactive);
     cursor: pointer;
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
+.addArticle:hover button {
+    border: 1px solid var(--conter-color);
+    background: var(--primary);
+    color: var(--conter-color);
+    transition: all .5s ease;
+}
+
 .addArticleMain .addArticleForm button:hover {
-    background: rgb(202, 38, 38);
+    background: var(--conter-color);
+    color: var(--text-active);
     cursor: pointer;
     transition: all .5s ease;
 
@@ -762,7 +1049,7 @@ main a:not(.alt, .art-ref, .art-del) {
 
 footer {
     height: 50px;
-    background-color: rgb(4, 74, 74);
+    background-color: var(--primary);
     display: flex;
     justify-content: start;
     align-items: center;
