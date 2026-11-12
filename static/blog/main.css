@@ -219,7 +219,7 @@ header {
 .navbar .sign-in {
     background-color: var(--primary);
     padding: 5px 10px;
-    border: 1px solid indianred;
+    border: 1px solid var(--conter-color);
     border-radius: 5px;
     color: var(--conter-color);
     font-size: 16px;
@@ -262,7 +262,7 @@ button.sign.sign-in:hover {
 
 .navbar .sign-in:hover {
     background-color: var(--conter-color);
-    color: var(--text-active);
+    color: var(--red-but-font);
     transition: all .5s ease;
 }
 
@@ -286,7 +286,7 @@ button.sign.sign-in:hover {
 
 .navbar .nav2 .sign-in.active {
     background-color: var(--conter-color);
-    color: var(--text-active);
+    color: var(--red-but-font);
     transition: all .5s ease;
 }
 
