@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Страница регистрации{% endblock %}
+{% block content %}
+    <main class="registerMain">
+        <div class="register">
+            <h1>Страница регистрации</h1>
+            <form method="POST" class="registerForm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Зарегистрироваться</button>
+                <p>Уже зарегистрированы? <a class='alt' href="{% url 'user' %}">Войти в личный кабинет</a></p>
+            </form>
+        </div>
+    </main>
+{% endblock %}

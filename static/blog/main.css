@@ -1,0 +1,770 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ------------------------------------------------------------ */
+/* ------------------------Общие стили------------------------- */
+/* ------------------------------------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    color:aliceblue;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-color: rgb(252, 236, 216);
+    color: rgb(4, 74, 74);
+}
+
+/* ------------------------------------------------------------ */
+/* --------------------------Шапка сайта------------------------*/
+/* ------------------------------------------------------------ */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0; 
+    left: 0;
+    z-index: 1000;
+}
+
+.header {
+    display: flex;
+    height: 80px;
+    background-color: rgb(4, 74, 74);
+    padding: 10px 15%;
+    text-align: center;
+    align-items: center;
+}
+
+.logo {
+    width: 20%;
+    font-size: 50px;
+    font-weight: 700;
+    justify-self: start;
+    text-align: left;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: all .5s ease;
+}
+
+.navbar {
+    width: 80%;
+    justify-self: end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .nav1, .nav2 {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.navbar .nav1 {
+    justify-content: start;
+    color: rgb(123, 123, 123);
+}
+
+.navbar .nav1 .adminka:hover {
+    color: indianred;
+    transition: all .5s ease;
+}
+
+.navbar .nav1 *:not(:last-child) {
+    margin-right: 3%;
+}
+
+.navbar .nav2 {
+    justify-content: end;
+}
+
+.navbar .nav2 *:not(:last-child) {
+    margin-right: 3%;
+}
+
+.navbar .sign-up {
+    background-color:none;
+    padding: 5px 10px;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    color: aliceblue;
+}
+
+.navbar .sign-in {
+    background-color: rgb(4, 74, 74);
+    padding: 5px 10px;
+    border: 1px solid indianred;
+    border-radius: 5px;
+    color: indianred;
+    font-size: 16px;
+}
+
+button.sign.sign-in {
+    height: 32px;
+    width: 80px;
+}
+
+.navbar .add-art {
+    background-color: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+}
+
+.navbar .add-art:hover {
+    background-color: rgb(7, 125, 125);
+    border: 1px solid rgb(7, 125, 125);
+    transition: all .5s ease;
+}
+
+button.sign.sign-in:hover {
+    cursor: pointer;
+}
+
+.navbar .nav1 *:hover {
+    color: aliceblue;
+    transition: all .5s ease;
+}
+
+.navbar .sign-up:hover {
+    background-color: aliceblue;
+    color: rgb(4, 74, 74);
+    transition: all .5s ease;
+}
+
+.navbar .sign-in:hover {
+    background-color: indianred;
+    color: aliceblue;
+    transition: all .5s ease;
+}
+
+.navbar .nav1 .active {
+    color: aliceblue;
+    transition: all .5s ease;
+}
+
+.navbar .nav2 .add-art.active {
+    background-color: rgb(7, 125, 125);
+    border: 1px solid rgb(7, 125, 125);
+    transition: all .5s ease;
+}
+
+.navbar .nav2 .sign-up.active {
+    background-color: aliceblue;
+    color: rgb(4, 74, 74);
+    transition: all .5s ease;
+}
+
+.navbar .nav2 .sign-in.active {
+    background-color: indianred;
+    color: aliceblue;
+    transition: all .5s ease;
+}
+
+/* ------------------------------------------------------------ */
+/* -----------------Стили панели уведомлений------------------- */
+/* ------------------------------------------------------------ */
+
+.messagesbar {
+    margin-top: 100px;
+    background-color: rgb(67, 156, 156);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.messages {
+    height: 100%;
+    padding: 0px 0px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messages:has(*) {
+    height: 40px;
+}
+
+/* ------------------------------------------------------------ */
+/* ----------------Общие стили основной части------------------ */
+/* ------------------------------------------------------------ */
+
+main {
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main h1 {
+    font-weight: 700;
+    font-size: 60px;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+main h2 {
+    margin-top: 3%;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+main h3 {
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 1%;
+    text-align: left;
+}
+
+main a:not(.alt, .art-ref, .art-del) {
+    background-color: indianred;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.alt {
+    color: indianred !important;
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------ */
+/* -------------------Стили главной страницы------------------- */
+/* ------------------------------------------------------------ */
+
+.articles {
+    width: 70%;
+    margin-top: 2%;
+    align-self: start;
+}
+
+.articles * {
+    color: rgb(4, 74, 74);
+}
+
+.article {
+    background-color: rgba(246, 241, 236, 0.781);
+    padding: 10px 20px;
+    border: 1px solid rgb(4, 74, 74);
+    border-radius: 5px;
+    margin-bottom: 1%;
+}
+
+.article:hover {
+    transform: scale(1.025);
+    transition: all .5s ease;
+}
+
+.article:last-of-type {
+    margin-bottom: 3%;
+}
+
+.article h2 {
+    margin-bottom: 1%;
+}
+
+.article p {
+    font-style: italic;
+    margin-bottom: 1%;
+}
+
+.article hr {
+    margin: 1% 0;
+    border: 1px solid rgba(4, 74, 74, 0.336)
+}
+
+.article img{
+    height: 40px;
+    width: auto;
+}
+
+.article .article-info {
+    display: flex;
+}
+
+.article .article-info a.avtor {
+    background-color: rgba(246, 241, 236, 0.781);
+    font-size: 16px;
+    text-decoration: underline;
+    border: none;
+    padding: 0;
+}
+
+.article .article-info div {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.article .article-info div p:last-of-type {
+    margin-top: 1%;
+}
+
+.article a.alt {
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.article a.alt:hover {
+    transform: scale(1.05);
+    color: rgb(208, 36, 36) !important;
+    transition: all .5s ease;
+}
+
+/* Кнопки удаления статьи в странице с редактированием */
+
+.articles .article-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.articles .article-btns .but-ref, .but-del {
+    background-color: none;
+    
+    
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.articles .article-btns .but-ref {
+    border: 1px solid rgb(4, 74, 74);
+    color:rgb(4, 74, 74);
+}
+
+.articles .article-btns .but-del {
+    border: 1px solid indianred;
+    color:indianred;
+}
+
+.articles .article-btns .but-ref:hover {
+    background-color: rgb(4, 74, 74);
+    color: aliceblue;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.articles .article-btns .but-del:hover {
+    background-color: indianred;
+    color: aliceblue;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+/* ----------------------Стили пагинации----------------------- */
+
+.articles .paginator {
+    margin-top: 2%;
+    display: flex;
+}
+
+.articles .paginator a {
+    font-size: 16px;
+    padding: 3px 1%;
+    background-color: rgba(246, 241, 236, 0.781);
+    font-weight: 500;
+    color: rgb(4, 74, 74);
+    border: 1px solid rgb(4, 74, 74);
+    border-radius: 5px;
+    margin-right: 1%;
+}
+
+.articles .paginator a:not(.inactive):hover{
+    background-color: rgb(4, 74, 74);
+    color: aliceblue;
+    transition: all .5s ease;
+}
+
+.articles .paginator a.inactive:hover {
+    cursor: default;
+}
+
+.articles .paginator a.inactive {
+    color: rgba(4, 74, 74, 0.46);
+    border: 1px solid rgba(4, 74, 74, 0.46);
+}
+
+/* ------------------------------------------------------------ */
+/* --------------------Стили страницы услуг-------------------- */
+/* ------------------------------------------------------------ */
+
+#blocks {
+    margin-left: 15%;
+    display: flex;
+    width: 70%;
+}
+
+#blocks *:not(:last-child) {
+    margin-right: 5%;
+}
+
+/* ------------------------------------------------------------ */
+/* ----------------Стили страницы регистрации------------------ */
+/* ------------------------------------------------------------ */
+
+.registerMain {
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    color: rgb(4, 74, 74);
+}
+
+.registerMain .exit p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.registerMain .exit h2 {
+    margin-top: 10%;
+    margin-bottom: 2%;
+}
+
+.registerMain * {
+    color: rgb(4, 74, 74);
+}
+
+.registerMain h1 {
+    font-size: 60px;
+    margin: 50px 0px;
+}
+
+.registerMain .registerForm label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 1%;
+    font-size: 14px;
+}
+
+.registerMain .registerForm input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.registerMain .registerForm button {
+    padding: 10px 16px;
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: indianred;
+    color: aliceblue;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.registerMain .registerForm button:hover {
+    background: rgb(202, 38, 38);
+    cursor: pointer;
+    transition: all .5s ease;
+
+}
+
+.registerMain .registerForm span {
+    margin-top: 0;
+    font-size: 14px;
+    color: gray;
+}
+
+/* ------------------------------------------------------------ */
+/* ------------------Стили страницы профиля-------------------- */
+/* ------------------------------------------------------------ */
+
+.exit-form {
+    display: inline-block;
+}
+
+.profile * {
+    color: rgb(4, 74, 74);
+}
+
+.profile {
+    width: 60%;
+}
+
+.profile h2 {
+    margin-top: 0;
+}
+
+.profile .profile1 h3 {
+    text-align: center;
+}
+
+.profile .profile1 {
+    border: 2px solid rgb(4, 74, 74); 
+    border-radius: 10px;
+    padding: 2%;
+    background-color: rgb(255, 246, 236);
+    width: 96%;
+}
+
+.profile .image {
+    height: 70px;
+    width: 70px;
+    border: 1px solid rgb(4, 74, 74);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.profile .image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-top {
+    display: flex;
+    align-items: center;
+}
+
+.profile-info {
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.profile-info *:not(:last-child) {
+    margin-bottom: 5%;
+}
+
+.profile hr {
+    margin: 2% 0;
+    border: 1px solid rgb(4, 74, 74);
+}
+
+.updateForm label {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.updateForm input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.updateForm button {
+    padding: 10px 16px;
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: indianred;
+    color: aliceblue;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 1%px;
+}
+
+.updateForm button:hover {
+    background: rgb(202, 38, 38);
+    cursor: pointer;
+    transition: all .5s ease;
+
+}
+
+.updateForm span {
+    margin-top: 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.updateForm select.sex-select {
+    border: 1px solid rgb(4, 74, 74);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.updateForm .privacy {
+    display: flex;
+}
+
+.updateForm .privacy input {
+    width: 3%;
+}
+
+.updateForm .privacy label {
+    width: 97%;
+}
+
+/* ------------------------------------------------------------ */
+/* ----------------Стили страницы создания статьи-------------- */
+/* ------------------------------------------------------------ */
+
+
+.addArticleMain {
+    margin-top: 4%;
+    width: 50%;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    color: rgb(4, 74, 74);
+}
+
+.addArticle {
+    width: 100%;
+}
+
+.addArticleMain * {
+    color: rgb(4, 74, 74);
+}
+
+.addArticleMain h1 {
+    font-size: 60px;
+    margin: 50px 0px;
+    text-align: center;
+}
+
+.addArticleMain .errorlist li {
+    color: indianred;
+}
+
+.addArticleMain .addArticleForm label {
+    display: block;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    font-size: 14px;
+}
+
+.addArticleMain .addArticleForm input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.addArticleMain .addArticleForm textarea {
+    width: calc(100% - 21px);
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.addArticleMain .addArticleForm button {
+    padding: 10px 16px;
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: indianred;
+    color: aliceblue;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.addArticleMain .addArticleForm button:hover {
+    background: rgb(202, 38, 38);
+    cursor: pointer;
+    transition: all .5s ease;
+
+}
+
+.addArticleMain .addArticleForm span {
+    margin-top: 0;
+    font-size: 14px;
+    color: gray;
+}
+
+/* ------------------------------------------------------------ */
+/* ----------------Стили страницы удаления статьи-------------- */
+/* ------------------------------------------------------------ */
+
+
+.delArticleMain {
+    margin-top: 2%;
+    width: 50%;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    color: rgb(4, 74, 74);
+}
+
+.delArticle {
+    width: 100%;
+}
+
+.delArticleMain * {
+    color: rgb(4, 74, 74);
+}
+
+.delArticleMain h3 {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.delArticleMain .delArticleForm .delButtons {
+    display: flex;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.delArticleMain .delArticleForm .delButtons button {
+    margin-right: 2%;
+}
+
+.delArticleMain .delArticleForm .delButtons a.del {
+    background-color: aliceblue;
+    color: rgb(4, 74, 74);
+    border: 1px solid rgb(4, 74, 74);
+}
+
+.delArticleMain .delArticleForm .delButtons button,a.del {
+    padding: 10px 16px;
+    width: 49%;
+    font-size: 18px;
+    border: 0;
+    border-radius: 6px;
+    background: indianred;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.delArticleMain .delArticleForm .delButtons button:hover {
+    background: rgb(202, 38, 38);
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.delArticleMain .delArticleForm .delButtons a.del:hover {
+    background: rgb(4, 74, 74);
+    color:aliceblue;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+/* ------------------------------------------------------------ */
+/* -------------------------Стили футера----------------------- */
+/* ------------------------------------------------------------ */
+
+footer {
+    height: 50px;
+    background-color: rgb(4, 74, 74);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 30px;
+}

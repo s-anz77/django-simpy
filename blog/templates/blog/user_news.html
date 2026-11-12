@@ -1,0 +1,56 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <div class="articles">
+        {% if user.username == view.kwargs.username %}
+        <h2>Ваши статьи</i></h2>
+        {% else %}
+        <h2>Статьи автора: <i>{{ view.kwargs.username }}</i></h2>
+        {% endif %}
+        <h3>Количество статей: {{ page_obj.paginator.count }}</h3>
+        {% for post in news %}
+            <div class='article'>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.text|striptags|linebreaksbr|truncatechars:200 }}</p>
+                <a href='{% url 'news-detail' post.id %}' class='alt'>Читать далее...</a>
+                <hr>
+                <div class="article-info">
+                    <img src="{{ post.avtor.profile.img.url }}" alt="{{ post.avtor.username }}">
+                    <div>
+                        <p><b>Публикация: </b>{{ post.date|date:"d E Y года в H:i:s"}}</p>
+                        <p><b>Автор: </b>{{ post.avtor }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class='paginator'>
+            {% if is_paginated %}
+                {% if page_obj.has_previous %}
+                    <a href='{% url 'user-news' view.kwargs.username %}'>&lt;&lt;</a>
+                    <a href='?page={{ page_obj.previous_page_number }}'>&lt;</a>
+                {% else %}
+                    <a class='inactive'>&lt;&lt;</a>
+                    <a class='inactive'>&lt;</a>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num == page_obj.number %}
+                        <a class='inactive'>{{ num }}</a>
+                    {% else %}
+                        <a href='?page={{ num }}'>{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <a href='?page={{ page_obj.next_page_number }}'>&gt;</a>
+                    <a href='?page={{ page_obj.paginator.num_pages }}'>&gt;&gt;</a>
+                {% else %}
+                    <a class='inactive'>&gt;</a>
+                    <a class='inactive'>&gt;&gt;</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

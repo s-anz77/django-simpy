@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Страница авторизации{% endblock %}
+{% block content %}
+    <main class="registerMain">
+        <div class="register exit">
+            <h2>Вы успешно вышли из аккаунта</h2>
+            <p>Впервые на сайте? <a class='alt' href="{% url 'reg' %}">Зарегистрироваться</a></p>
+            <p>Уже есть аккаунт? <a class='alt' href="{% url 'user' %}">Войти</a></p>
+
+        </div>
+    </main>
+{% endblock %}

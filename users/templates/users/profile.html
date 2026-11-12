@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Кабинет пользователя{% endblock %}
+{% block content %}
+    <div class='profile'>
+        <h2>Кабинет пользователя</h2>
+        <div class='profile1'>
+            <div class='profile-top'>
+                <div class='image'>
+                <img src="{{ user.profile.img.url }}" alt="Фото пользователя {{ user.username }}">
+                </div>
+                <div class='profile-info'>
+                    <p><b>Имя пользователя: </b>{{ user.username }}</p>
+                    <p><b>Email: </b>{{ user.email }}</p>
+            </div>
+        </div>
+        <hr>
+        <h3>Актуализация данных пользователя</h3>
+        <form method='post' enctype='multipart/form-data' class='updateForm'>
+            {% csrf_token %}
+            {{ update_user_form.as_p }}
+            {% for field in profile_form %}
+                {% if field.name == "privacy" %}
+                    <p class='privacy'>
+                        <label for="{{ field.id_for_label }}">
+                            {{ field }} {{ field.label }}
+                        </label>
+                        {{ field.errors }}
+                    </p>
+                {% else %}
+                    {{ field.as_field_group }}
+                {% endif %}
+            {% endfor %}
+            <button type="submit">Обновить</button>
+        </form>
+        </div>
+    </div>
+{% endblock %}

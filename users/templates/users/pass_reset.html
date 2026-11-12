@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Восстановление пароля{% endblock %}
+{% block content %}
+    <main class="registerMain">
+        <div class="register">
+            <h1>Восстановление пароля</h1>
+            <form method="POST" class="registerForm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Запросить новый пароль</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

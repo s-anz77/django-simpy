@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+    <div class="articles">
+        <h2>Подробности статьи <i>"{{ post.title }}"</i> от <u><i>{{ post.avtor }}</i></u></h2>
+        <div class='article'>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.text|safe|linebreaksbr }}</p>
+            <hr>
+            <div class="article-info">
+                <img src="{{ post.avtor.profile.img.url }}" alt="{{ post.avtor.username }}">
+                <div>
+                    <p><b>Публикация: </b>{{ post.date|date:"d E Y года в H:i:s"}}</p>
+                    <p><b>Автор: </b>{{ post.avtor }}</p>
+                </div>
+            </div>
+        </div>
+        {% if user == post.avtor %}
+            <div class='article-btns'>
+                <a class='art-ref' href='{% url 'news-update' object.id %}'><button class='but-ref'>Редактировать</button></a>
+                <a class='art-del' href='{% url 'news-delete' object.id %}'><button class='but-del'>Удалить</button></a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
