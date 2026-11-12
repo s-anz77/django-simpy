@@ -16,6 +16,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+# Railway terminates HTTPS at its proxy; trust the forwarded scheme and
+# Railway's public app domains for Django's CSRF origin checks.
+CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Application definition
 
