@@ -1,1 +1,1 @@
-web: gunicorn firstdjangoproject.wsgi:application
+web: python manage.py collectstatic --noinput && gunicorn firstdjangoproject.wsgi:application
