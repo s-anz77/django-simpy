@@ -17,6 +17,7 @@
     --input:hsl(218, 40%, 7%);
     --avtor:hsl(218, 40%, 7%);
     --red-but-font:hsl(208, 100%, 97%);
+    --avatar:hsl(0, 0%, 48%);
 }
 
 :root[data-theme="light"] {
@@ -35,6 +36,7 @@
     --input:#cbd5e1;
     --avtor:#ffffff;
     --red-but-font:#ffffff;
+    --avatar:#ffffff;
 }
 
 /* ------------------------------------------------------------ */
@@ -418,8 +420,8 @@ main a:not(.alt, .art-ref, .art-del) {
     border: 1px dashed var(--text-inactive);
 }
 
-.article img{
-    background-color: var(--text-active);
+.article img {
+    background-color: var(--avatar);
     height: 40px;
     width: auto;
     border: 1px solid var(--text-inactive);
