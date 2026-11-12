@@ -8,12 +8,33 @@
     --primary: hsl(218, 40%, 4%);
     --messagebar: hsl(218, 40%, 10%);
     --background: hsl(218, 40%, 7%);
-    --1: #3A668B;
-    --2: #437FB1;
+    --1: hsl(207, 41%, 39%);
+    --2: hsl(207, 45%, 48%);
     --3: #cbd5e1;
     --text-active: hsl(208, 100%, 97%);
     --text-inactive: hsl(0, 0%, 48%);
     --conter-color: hsl(0, 53%, 58%);
+    --input:hsl(218, 40%, 7%);
+    --avtor:hsl(218, 40%, 7%);
+    --red-but-font:hsl(208, 100%, 97%);
+}
+
+:root[data-theme="light"] {
+    --primary: #ffffff;
+    --messagebar: #f1f5f9;
+    --background: hsl(207, 45%, 70%);
+    --1: #3a668b;
+    --2: #437fb1;
+    --3: #cbd5e1;
+    --text-active: #172033;
+    --text-inactive: #64748b;
+    --conter-color: #c03945;
+    --p1:#160150;
+    --p2:hsl(256, 70%, 50%);
+    --p3:hsl(298, 100%, 29%);
+    --input:#cbd5e1;
+    --avtor:#ffffff;
+    --red-but-font:#ffffff;
 }
 
 /* ------------------------------------------------------------ */
@@ -33,7 +54,7 @@ a {
 }
 
 button {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0);
     border: none;
 }
 
@@ -58,14 +79,13 @@ header {
     z-index: 1000;
 }
 
-header::after {
+:root[data-theme="dark"] header::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 4px;
-
     background: linear-gradient(
         90deg,
         var(--1),
@@ -73,6 +93,25 @@ header::after {
         var(--conter-color),
         var(--2),
         var(--1)
+    );
+    background-size: 300% 100%;
+    animation: color-wave 3s ease-in-out infinite alternate;
+}
+
+:root[data-theme="light"] header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--p1),
+        var(--p2),  
+        var(--p3),
+        var(--p2),
+        var(--p1)
     );
     background-size: 300% 100%;
     animation: color-wave 3s ease-in-out infinite alternate;
@@ -148,6 +187,23 @@ header::after {
 
 .navbar .nav2 *:not(:last-child) {
     margin-right: 3%;
+}
+
+#theme-toggle {
+    border-radius: 5px;
+    display: flex;
+}
+
+.icon-sun {
+    display: none;
+}
+
+:root[data-theme="light"] .icon-moon {
+    display: none;
+}
+
+:root[data-theme="light"] .icon-sun {
+    display: block;
 }
 
 .navbar .sign-up {
@@ -375,7 +431,7 @@ main a:not(.alt, .art-ref, .art-del) {
 }
 
 .article .article-info a.avtor {
-    background-color: var(--background);
+    background-color: var(--avtor);
     font-size: 16px;
     text-decoration: underline;
     border: none;
@@ -423,11 +479,13 @@ main a:not(.alt, .art-ref, .art-del) {
 .articles .article-btns .but-ref {
     border: 1px solid var(--text-inactive);
     color:var(--text-inactive);
+    background-color: var(--primary);
 }
 
 .articles .article-btns .but-del {
     border: 1px solid var(--conter-color);
     color:var(--conter-color);
+    background-color: var(--primary);
 }
 
 .articles .article-btns .but-ref:hover {
@@ -439,7 +497,7 @@ main a:not(.alt, .art-ref, .art-del) {
 
 .articles .article-btns .but-del:hover {
     background-color: var(--conter-color);
-    color: var(--text-active);
+    color: var(--red-but-font);
     cursor: pointer;
     transition: all .5s ease;
 }
@@ -631,7 +689,7 @@ main a:not(.alt, .art-ref, .art-del) {
     width: 100%;
     padding: 10px;
     color: var(--text-active);
-    background-color: var(--background);
+    background-color: var(--input);
     border: 1px solid var(--text-inactive);
     border-radius: 6px;
     box-sizing: border-box;
@@ -642,7 +700,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
     -webkit-text-fill-color: var(--text-active) !important;
-    -webkit-box-shadow: 0 0 0 1000px var(--background) inset !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--input) inset !important;
     caret-color: var(--text-active);
 }
 
@@ -651,7 +709,7 @@ input:-webkit-autofill:focus {
     width: 100%;
     border: 1px solid var(--text-inactive);
     border-radius: 6px;
-    background: var(--background);
+    background: var(--input);
     color: var(--text-inactive);
     cursor: pointer;
     margin-top: 30px;
@@ -660,14 +718,14 @@ input:-webkit-autofill:focus {
 
 .registerMain .register:hover button {
     border: 1px solid var(--conter-color);
-    background: var(--background);
+    background: var(--input);
     color: var(--conter-color);
     transition: all .5s ease;
 }
 
 .registerMain .registerForm button:hover {
     background: var(--conter-color);
-    color: var(--text-active);
+    color: var(--red-but-font);
     cursor: pointer;
     transition: all .5s ease;
 }
@@ -771,7 +829,7 @@ input:-webkit-autofill:focus {
 .updateForm input {
     width: 100%;
     padding: 10px;
-    background-color: var(--background);
+    background-color: var(--input);
     border: 1px solid var(--text-inactive);
     border-radius: 6px;
     box-sizing: border-box;
@@ -782,7 +840,7 @@ input:-webkit-autofill:focus {
     width: 100%;
     border: 1px solid var(--text-inactive);
     border-radius: 6px;
-    background: var(--primary);
+    background: var(--input);
     color: var(--text-inactive);
     cursor: pointer;
 }
@@ -800,7 +858,7 @@ input:-webkit-autofill:focus {
 }
 
 .updateForm input[type="file"]::file-selector-button {
-    background-color: var(--primary);
+    background-color: var(--input);
     color: var(--text-inactive);
     border: 1px dashed var(--text-inactive);
     border-radius: 5px;
@@ -818,7 +876,7 @@ input:-webkit-autofill:focus {
 
 .updateForm select.sex-select {
     border: 1px solid var(--text-inactive);
-    background-color: var(--background);
+    background-color: var(--input);
     border-radius: 6px;
     padding: 8px;
 }
@@ -860,14 +918,14 @@ input:-webkit-autofill:focus {
 
 .profile:hover button {
     border: 1px solid var(--conter-color);
-    background: var(--primary);
+    background: var(--input);
     color: var(--conter-color);
     transition: all .5s ease;
 }
 
 .updateForm button:hover {
     background: var(--conter-color);
-    color: var(--text-active);
+    color: var(--red-but-font);
     cursor: pointer;
     transition: all .5s ease;
 }
@@ -927,7 +985,7 @@ input:-webkit-autofill:focus {
 .addArticleMain .addArticleForm input {
     width: 100%;
     padding: 10px;
-    background-color: var(--background);
+    background-color: var(--input);
     border: 1px solid var(--text-inactive);
     border-radius: 6px;
     box-sizing: border-box;
@@ -936,7 +994,7 @@ input:-webkit-autofill:focus {
 .addArticleMain .addArticleForm textarea {
     width: calc(100% - 21px);
     resize: none;
-    background-color: var(--background);
+    background-color: var(--input);
     border: 1px solid var(--text-inactive);
     border-radius: 6px;
     padding: 10px;
@@ -947,7 +1005,7 @@ input:-webkit-autofill:focus {
     width: 100%;
     border: 1px solid var(--text-inactive);
     border-radius: 6px;
-    background: var(--primary);
+    background: var(--input);
     color: var(--text-inactive);
     cursor: pointer;
     margin-top: 30px;
@@ -956,14 +1014,14 @@ input:-webkit-autofill:focus {
 
 .addArticle:hover button {
     border: 1px solid var(--conter-color);
-    background: var(--primary);
+    background: var(--input);
     color: var(--conter-color);
     transition: all .5s ease;
 }
 
 .addArticleMain .addArticleForm button:hover {
     background: var(--conter-color);
-    color: var(--text-active);
+    color: var(--red-but-font);
     cursor: pointer;
     transition: all .5s ease;
 
@@ -987,20 +1045,16 @@ input:-webkit-autofill:focus {
     display: flex;
     justify-content: center;
     align-items: start;
-    color: rgb(4, 74, 74);
 }
 
 .delArticle {
     width: 100%;
 }
 
-.delArticleMain * {
-    color: rgb(4, 74, 74);
-}
-
 .delArticleMain h3 {
     margin-top: 5%;
     text-align: center;
+    color:var(--text-inactive);
 }
 
 .delArticleMain .delArticleForm .delButtons {
@@ -1014,31 +1068,32 @@ input:-webkit-autofill:focus {
 }
 
 .delArticleMain .delArticleForm .delButtons a.del {
-    background-color: aliceblue;
-    color: rgb(4, 74, 74);
-    border: 1px solid rgb(4, 74, 74);
+    background-color: var(--input);
+    color: var(--text-inactive);
+    border: 1px solid var(--text-inactive);
 }
 
 .delArticleMain .delArticleForm .delButtons button,a.del {
     padding: 10px 16px;
     width: 49%;
-    font-size: 18px;
-    border: 0;
+    font-size: 14px !important;
+    border: 1px solid var(--conter-color);
     border-radius: 6px;
-    background: indianred;
-    color: aliceblue;
+    background: var(--input);
+    color: var(--conter-color);
     cursor: pointer;
 }
 
 .delArticleMain .delArticleForm .delButtons button:hover {
-    background: rgb(202, 38, 38);
+    background: var(--conter-color);
+    color: var(--red-but-font);
     cursor: pointer;
     transition: all .5s ease;
 }
 
 .delArticleMain .delArticleForm .delButtons a.del:hover {
-    background: rgb(4, 74, 74);
-    color:aliceblue;
+    background: var(--text-active);
+    color:var(--primary);
     cursor: pointer;
     transition: all .5s ease;
 }

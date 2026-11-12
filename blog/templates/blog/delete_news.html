@@ -4,7 +4,7 @@
 {% block content %}
     <main class="delArticleMain">
         <div class="delArticle">
-            <h3>Вы точно хотите удалить статью: <i>"{{ title }}"</i>?</h3>
+            <h3>Вы точно хотите удалить статью: <i>{{ title }}</i>?</h3>
             <form method="POST" class="delArticleForm">
                 {% csrf_token %}
                 <div class='delButtons'>
