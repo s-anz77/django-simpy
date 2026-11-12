@@ -23,8 +23,9 @@
             {% for field in profile_form %}
                 {% if field.name == "privacy" %}
                     <p class='privacy'>
-                        <label for="{{ field.id_for_label }}">
-                            {{ field }} {{ field.label }}
+                        <label class="privacy-label" for="{{ field.id_for_label }}">
+                            {{ field }}
+                            <span>{{ field.label }}</span>
                         </label>
                         {{ field.errors }}
                     </p>
