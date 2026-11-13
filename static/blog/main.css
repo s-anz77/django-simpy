@@ -78,12 +78,9 @@ header {
     width: 100%;
     top: 0; 
     left: 0;
-    z-index: 1000;
-    overflow: hidden;
-    box-shadow: 0 15px 30px 0 var(--primary);
 }
 
-:root[data-theme="dark"] header::after {
+:root[data-theme="dark"] .hiddenbar::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -102,7 +99,7 @@ header {
     animation: color-wave 3s ease-in-out infinite alternate;
 }
 
-:root[data-theme="light"] header::after {
+:root[data-theme="light"] .hiddenbar::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -137,15 +134,14 @@ header {
     text-align: center;
     align-items: center;
     border-bottom: 1px solid var(--text-inactive);
-    
+    z-index: 1000;
+    overflow: hidden;
 }
 
 .logo {
-    width: 20%;
     font-size: 40px;
     font-weight: 700;
-    justify-self: start;
-    text-align: left;
+    text-align: center;
 }
 
 .logo:hover {
@@ -154,7 +150,7 @@ header {
 }
 
 .navbar {
-    width: 80%;
+    width: 100%;
     justify-self: end;
     display: flex;
     justify-content: space-between;
@@ -164,12 +160,12 @@ header {
 .navbar .nav1, .nav2 {
     display: flex;
     align-items: center;
-    width: 50%;
 }
 
 .navbar .nav1 {
-    justify-content: start;
     color: var(--text-inactive);
+    white-space: nowrap;
+    margin-left: 5%;
 }
 
 .navbar .nav1 .adminka:hover {
@@ -178,7 +174,7 @@ header {
 }
 
 .navbar .nav1 *:not(:last-child) {
-    margin-right: 3%;
+    margin-right: 5%;
 }
 
 .navbar .nav2 {
@@ -190,7 +186,7 @@ header {
 }
 
 .navbar .nav2 *:not(:last-child) {
-    margin-right: 3%;
+    margin-right: 5%;
 }
 
 #theme-toggle {
@@ -388,10 +384,12 @@ button.sign.sign-in:hover {
 
 #profilebut,
 #addartbut,
-#loginbut {
+#loginbut,
+#menubut {
     background: rgb(255 255 255 / 15%) !important;
-    
 }
+
+
 
 #logoutbut {
     border-radius: 5px;
@@ -427,7 +425,7 @@ button.sign.sign-in:hover {
     visibility: hidden;
     transition: opacity .2s ease, transform .2s ease;
     pointer-events: none;
-    z-index: 1001;
+    z-index: 1000;
 }
 
 #theme-toggle:hover::after,
@@ -479,7 +477,7 @@ button.sign.sign-in:hover {
 /* ------------------------------------------------------------ */
 
 main {
-    min-height: 800px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1322,4 +1320,149 @@ footer {
     justify-content: start;
     align-items: center;
     padding: 10px 30px;
+}
+
+/* ------------------------------------------------------------ */
+/* --------------------------Адаптация------------------------- */
+/* ------------------------------------------------------------ */
+
+.short-navbar {
+    width: 100%;
+    display: none;
+    justify-content: end;
+    align-items: center;
+}
+
+.short-navbar #menubut {
+    background: rgb(255 255 255 / 15%) !important;
+    border: 1px solid var(--text-inactive);
+    border-radius: 5px;
+    backdrop-filter: blur(8px);
+    padding: 4px 8px !important;
+    margin-left: 2%;
+}
+
+.short-navbar #menubut:hover {
+    border: 1px solid var(--text-active);
+    transition: all .5s ease;
+}
+
+.short-navbar #menubut svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    fill: var(--text-inactive);
+}
+
+.short-navbar #menubut:hover svg {
+    fill: var(--text-active);
+    transition: all .5s ease;
+}
+
+.hiddenbar {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 2% 5%;
+}
+
+.hiddenbar *:not(:last-child) {
+    margin-bottom: 2%;
+    border: 1px solid var(--text-inactive);
+    border-radius: 5px;
+}
+
+.hiddenbar a {
+    padding: 1%;
+}
+
+.hiddenbar * {
+    width: 70%;
+}
+
+.hiddenbar #addartbut, 
+.hiddenbar #profilebut {
+    background-color: var(--primary) !important;
+    display: flex;
+    align-items: center;
+    padding: 1% !important;
+}
+
+.hiddenbar #addartbut svg, 
+.hiddenbar #profilebut svg {
+    padding: 0;
+    margin: 0;
+}
+
+.hiddenbar #addartbut span, 
+.hiddenbar #profilebut span {
+    width: 98%;
+    margin-right: 4%;
+}
+
+.hiddenbar form {
+    width: 72%;
+    display: flex;
+    justify-content: center;
+}
+
+.hiddenbar .exit-form * {
+    margin: 0;
+    margin-bottom: 1%;
+    padding: 0 !important;
+}
+
+.hiddenbar #logoutbut {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.hiddenbar #logoutbut a {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    border: 1px solid var(--conter-color);
+    border-radius: 5px;
+    padding: 1% !important;
+}
+
+.hiddenbar #logoutbut a span {
+    width: 98%;
+    margin-right: 4%;
+    font-size: 16px;
+    color: var(--conter-color);
+}
+
+.hiddenbar #logoutbut a svg {
+    border: none;
+}
+
+.hiddenbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(calc(-100% + 3px));
+    transition: all 1s ease;
+    z-index: -1 !important;
+}
+
+.hiddenbar.activebar {
+    display: flex;
+    transform: none !important;
+    transition: all 1s ease;
+    z-index: 999 !important;
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        display: none;
+    }
+
+    .short-navbar {
+        display: flex;
+    }
 }

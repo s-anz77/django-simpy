@@ -1,4 +1,6 @@
-const button = document.querySelector("#theme-toggle");
+const button = document.querySelector(".theme-toggle1");
+const button2 = document.querySelector(".theme-toggle2");
+
 const root = document.documentElement;
 
 const savedTheme = localStorage.getItem("theme") || "dark";
@@ -14,12 +16,10 @@ const waves = VANTA.WAVES({
     scale: 1.00,
     scaleMobile: 1.00,
     waveHeight: 40,
-    // WAVES' `zoom` option adjusts mouse parallax, not the initial framing.
     zoom: 1,
     color: savedTheme === "dark" ? 0x060A0F : 0x90b6d5 
 });
 
-// Tighten the camera framing on initial load without changing canvas resolution.
 waves.camera.zoom = 2;
 waves.camera.updateProjectionMatrix();
 
@@ -33,3 +33,32 @@ button.addEventListener("click", () => {
     });
 });
 
+button2.addEventListener("click", () => {
+    const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = nextTheme;
+    localStorage.setItem("theme", nextTheme);
+
+    waves.setOptions({
+        color: nextTheme === "light" ? 0x90b6d5 : 0x060A0F
+    });
+});
+
+// Выдвижная панель
+
+const menuButton = document.querySelector("#menubut");
+const hiddenBar = document.querySelector('.hiddenbar')
+
+menuButton.addEventListener('click', () => {
+    const isOpen = hiddenBar.classList.toggle("menu-open");
+    hiddenBar.classList.toggle("activebar", isOpen);
+})
+
+
+
+function updateHiddenBarHeight() {
+    const hiddenBarHeight = hiddenBar.offsetHeight;
+    hiddenBar.style.transform = `translateY(-${hiddenBarHeight - 3}px)`;
+}
+
+updateHiddenBarHeight();
+window.addEventListener("resize", updateHiddenBarHeight);
