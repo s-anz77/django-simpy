@@ -6,7 +6,7 @@
 
 :root {
     --primary: hsl(218, 40%, 4%);
-    --messagebar: hsl(218, 40%, 10%);
+    --messagebar: hsl(217, 41%, 10%);
     --background: hsl(218, 40%, 7%);
     --1: hsl(207, 41%, 39%);
     --2: hsl(207, 45%, 48%);
@@ -79,7 +79,8 @@ header {
     top: 0; 
     left: 0;
     z-index: 1000;
-    overflow: hidden
+    overflow: hidden;
+    box-shadow: 0 15px 30px 0 var(--primary);
 }
 
 :root[data-theme="dark"] header::after {
@@ -136,6 +137,7 @@ header {
     text-align: center;
     align-items: center;
     border-bottom: 1px solid var(--text-inactive);
+    
 }
 
 .logo {
@@ -224,9 +226,13 @@ header {
     border-radius: 5px;
     color: var(--text-inactive);
 }
+.navbar .sign-up svg {
+    fill: var(--text-inactive);
+}
 
 .navbar .sign-in {
-    background-color: none;
+    background: rgb(255 255 255 / 15%) !important;
+    backdrop-filter: blur(8px);
     padding: 5px 10px;
     border: 1px solid var(--conter-color);
     border-radius: 5px;
@@ -269,8 +275,12 @@ button.sign.sign-in:hover {
     transition: all .5s ease;
 }
 
+.navbar .sign-up:hover svg {
+    fill: var(--text-active);
+}
+
 .navbar .sign-in:hover {
-    background-color: var(--conter-color);
+    background-color: var(--conter-color) !important;
     color: var(--red-but-font);
     transition: all .5s ease;
 }
@@ -282,21 +292,157 @@ button.sign.sign-in:hover {
 
 .navbar .nav2 .add-art.active {
     background-color: var(--text-active);
-    border: 1px solid var(--text-active);
+    border: 1px solid var(--text-active) !important;
     color: var(--primary);
+    transition: all .5s ease;
+}
+
+.navbar .nav2 .add-art.active svg {
+    fill: var(--text-active);
     transition: all .5s ease;
 }
 
 .navbar .nav2 .sign-up.active {
     background-color: var(--text-active);
     color: var(--primary);
+    border: 1px solid var(--text-active) !important;
+    transition: all .5s ease;
+}
+
+.navbar .nav2 .sign-up.active svg {
+    fill: var(--text-active);
     transition: all .5s ease;
 }
 
 .navbar .nav2 .sign-in.active {
-    background-color: var(--conter-color);
+    background-color: var(--conter-color) !important;
     color: var(--red-but-font);
     transition: all .5s ease;
+}
+
+.svg-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1%;
+    white-space: nowrap;
+    padding-left: 1% !important;
+}
+
+.svg-flex svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    fill: var(--text-inactive);
+}
+
+.svg-flex:hover svg {
+    fill: var(--primary);
+    transition: all .5s ease;
+}
+
+.svg-solo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    padding: 4px 8px !important;
+}
+
+.svg-solo svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    fill: var(--text-inactive);
+}
+
+.svg-solo:hover svg {
+    fill: var(--primary);
+    transition: all .5s ease;
+}
+
+#logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 4px 8px !important;
+}
+
+#logout svg {
+    fill: var(--conter-color);
+}
+
+.navbar #logout:hover {
+    background: var(--conter-color) !important;
+}
+
+.navbar #logout:hover svg {
+    fill: var(--red-but-font);
+    transition: all .5s ease;
+}
+
+/* ------------------------------------------------------------ */
+/* --------------Настройка всплывающих подсказок--------------- */
+/* ------------------------------------------------------------ */
+
+#profilebut,
+#addartbut,
+#loginbut {
+    background: rgb(255 255 255 / 15%) !important;
+    
+}
+
+#logoutbut {
+    border-radius: 5px;
+    backdrop-filter: blur(8px); 
+}
+
+#theme-toggle,
+#logoutbut,
+#profilebut,
+#addartbut,
+#loginbut {
+    position: relative;
+}
+
+#theme-toggle::after,
+#logoutbut::after,
+#profilebut::after,
+#addartbut::after,
+#loginbut::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 7px);
+    transform: translate(-50%, 4px);
+    padding: 3px 5px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: var(--text-active);
+    border: 1px solid var(--text-inactive);
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, transform .2s ease;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+#theme-toggle:hover::after,
+#theme-toggle:focus-visible::after, 
+#logoutbut:hover::after,
+#logoutbut:focus-visible::after,
+#profilebut:hover::after,
+#profilebut:focus-visible::after,
+#addartbut:hover::after,
+#addartbut:focus-visible::after,
+#loginbut:hover::after,
+#loginbut:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
 }
 
 /* ------------------------------------------------------------ */
@@ -305,16 +451,17 @@ button.sign.sign-in:hover {
 
 .messagesbar {
     margin-top: 100px;
-    background-color: var(--1);
+    background-color: var(--messagebar);
     width: 100%;
     display: flex;
     justify-content: center;
+    
 }
 
 .messages {
     height: 100%;
     padding: 0px 0px;
-    width: 70%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -322,7 +469,10 @@ button.sign.sign-in:hover {
 
 .messages:has(*) {
     height: 30px;
+    border-bottom: 2px solid var(--primary);
+    border-top: 2px solid var(--primary);
 }
+
 
 /* ------------------------------------------------------------ */
 /* ----------------Общие стили основной части------------------ */

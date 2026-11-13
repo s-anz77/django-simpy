@@ -16,7 +16,7 @@ const waves = VANTA.WAVES({
     waveHeight: 40,
     // WAVES' `zoom` option adjusts mouse parallax, not the initial framing.
     zoom: 1,
-    color: savedTheme === "light" ? 0x90b6d5 : 0x060A0F
+    color: savedTheme === "dark" ? 0x060A0F : 0x90b6d5 
 });
 
 // Tighten the camera framing on initial load without changing canvas resolution.
