@@ -52,13 +52,3 @@ menuButton.addEventListener('click', () => {
     const isOpen = hiddenBar.classList.toggle("menu-open");
     hiddenBar.classList.toggle("activebar", isOpen);
 })
-
-
-
-function updateHiddenBarHeight() {
-    const hiddenBarHeight = hiddenBar.offsetHeight;
-    hiddenBar.style.transform = `translateY(-${hiddenBarHeight - 3}px)`;
-}
-
-updateHiddenBarHeight();
-window.addEventListener("resize", updateHiddenBarHeight);
