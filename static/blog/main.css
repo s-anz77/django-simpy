@@ -1540,6 +1540,7 @@ footer span {
     align-items: center;
     background-color: none !important;
     background: none !important;
+    padding: 1% 1% !important;
 }
 
 .hiddenbar #loginbut svg {
@@ -1547,8 +1548,7 @@ footer span {
 }
 
 .hiddenbar #loginbut span {
-    padding: 1%;
-    width: 100%;
+    padding: 0;
     width: 98%;
     margin-right: 4%;
 }
