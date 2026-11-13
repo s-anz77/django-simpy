@@ -730,6 +730,7 @@ main a:not(.alt, .art-ref, .art-del) {
 #blocks {
     display: flex;
     width: 100%;
+    flex-direction: row;
 }
 
 
@@ -1583,6 +1584,21 @@ footer span {
     z-index: 999 !important;
 }
 
+@media (max-width: 900px) {
+    #blocks {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .uslugi #blocks .block {
+        margin: 0% 0 !important;
+        margin-bottom: 2% !important;
+        width: 100%;
+    }
+
+}
+
 @media (max-width: 820px) {
     .navbar {
         display: none;
@@ -1594,9 +1610,11 @@ footer span {
 }
 
 @media (max-width: 768px) {
-    :root {
+    :root, :root[data-theme="light"] {
         --main-width: 80%;
     }
+
+    
     h2 {
         font-size: 30px !important;
         overflow-wrap: anywhere;
@@ -1609,13 +1627,14 @@ footer span {
         font-size: 14px !important;
         overflow-wrap: anywhere;
     }
+
     footer span {
     font-size: 14px;
     }
 }
 
 @media (max-width: 600px) {
-    :root {
+    :root, :root[data-theme="light"] {
         --main-width: 90%;
     }
     footer span {
