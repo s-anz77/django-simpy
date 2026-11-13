@@ -14,61 +14,63 @@
 <body>
     <header>
         <div class='header' id='header'>
-            <div class='logo'><a href="/">Simpy</a></div>
+            <div class='header-inside'>
+                <div class='logo'><a href="/">Simpy</a></div>
 
-            <div class='short-navbar'>
-                <button id="theme-toggle" class='theme-toggle1' data-tooltip="Сменить тему" type="button">
-                    <svg class='icon-sun' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M14.13,14.13Q15,13.25 15,12T14.13,9.88T12,9T9.88,9.88T9,12t0.88,2.13T12,15t2.13-0.88ZM8.46,15.54Q7,14.08 7,12Q7,9.92 8.46,8.46T12,7t3.54,1.46T17,12t-1.46,3.54T12,17q-2.07,0-3.54-1.46ZM5,13H1V11H5v2Zm18,0H19V11h4v2ZM11,5V1h2V5H11Zm0,18V19h2v4H11ZM6.4,7.75L3.88,5.32L5.3,3.85l2.4,2.5L6.4,7.75Zm12.3,12.4l-2.42-2.52l1.32-1.38l2.52,2.43L18.7,20.15ZM16.25,6.4l2.43-2.52L20.15,5.3l-2.5,2.4l-1.4-1.3ZM3.85,18.7l2.53-2.43L7.75,17.6L5.33,20.13L3.85,18.7ZM12,12Z"/></svg>
-                    <svg class='icon-moon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M12,21q-3.75,0-6.38-2.63T3,12T5.63,5.63T12,3q0.35,0 0.69,0.02q0.34,0.02 0.66,0.07q-1.03,0.73-1.64,1.89T11.1,7.5q0,2.25 1.57,3.82T16.5,12.9q1.38,0 2.53-0.61t1.88-1.64q0.05,0.33 0.07,0.66T21,12q0,3.75-2.63,6.38T12,21Zm0-2q2.2,0 3.95-1.21t2.55-3.16q-0.5,0.13-1,0.2t-1,0.08q-3.07,0-5.24-2.16Q9.1,10.58 9.1,7.5q0-0.5 0.08-1t0.2-1Q7.43,6.3 6.21,8.05T5,12q0,2.9 2.05,4.95T12,19Zm-0.25-6.75Z"/></svg>
-                </button>
-
-                <button id='menubut'>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="hsl(0, 0%, 48%)"><path d="M3,18V16H21v2H3Zm0-5V11H21v2H3ZM3,8V6H21V8H3Z"/></svg>
-                </button>
-            </div>
-
-
-
-            <div class='navbar'>
-                <div class='nav1'>
-                    <a href="{% url 'uslugi' %}" class='{% if request.resolver_match.url_name == 'uslugi' %}active{% endif %}'>Услуги</a>
-                    <a href="{% url 'contacts' %}" class='{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}'>Контакты</a>
-                    <a href="{% url 'about' %}" class='{% if request.resolver_match.url_name == 'about' %}active{% endif %}'>Про нас</a>
-                    {% if user.is_superuser %}
-                        <a href="/admin/" class='adminka'>Админка</a>
-                    {% endif %}
-                </div>
-                <div class='nav2'>
-
-                    <button id="theme-toggle" class='theme-toggle2' data-tooltip="Сменить тему" type="button">
+                <div class='short-navbar'>
+                    <button id="theme-toggle" class='theme-toggle1' data-tooltip="Сменить тему" type="button">
                         <svg class='icon-sun' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M14.13,14.13Q15,13.25 15,12T14.13,9.88T12,9T9.88,9.88T9,12t0.88,2.13T12,15t2.13-0.88ZM8.46,15.54Q7,14.08 7,12Q7,9.92 8.46,8.46T12,7t3.54,1.46T17,12t-1.46,3.54T12,17q-2.07,0-3.54-1.46ZM5,13H1V11H5v2Zm18,0H19V11h4v2ZM11,5V1h2V5H11Zm0,18V19h2v4H11ZM6.4,7.75L3.88,5.32L5.3,3.85l2.4,2.5L6.4,7.75Zm12.3,12.4l-2.42-2.52l1.32-1.38l2.52,2.43L18.7,20.15ZM16.25,6.4l2.43-2.52L20.15,5.3l-2.5,2.4l-1.4-1.3ZM3.85,18.7l2.53-2.43L7.75,17.6L5.33,20.13L3.85,18.7ZM12,12Z"/></svg>
                         <svg class='icon-moon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M12,21q-3.75,0-6.38-2.63T3,12T5.63,5.63T12,3q0.35,0 0.69,0.02q0.34,0.02 0.66,0.07q-1.03,0.73-1.64,1.89T11.1,7.5q0,2.25 1.57,3.82T16.5,12.9q1.38,0 2.53-0.61t1.88-1.64q0.05,0.33 0.07,0.66T21,12q0,3.75-2.63,6.38T12,21Zm0-2q2.2,0 3.95-1.21t2.55-3.16q-0.5,0.13-1,0.2t-1,0.08q-3.07,0-5.24-2.16Q9.1,10.58 9.1,7.5q0-0.5 0.08-1t0.2-1Q7.43,6.3 6.21,8.05T5,12q0,2.9 2.05,4.95T12,19Zm-0.25-6.75Z"/></svg>
                     </button>
 
-                    {% if not user.is_authenticated %}
-                        <a href="{% url 'reg' %}" class='{% if request.resolver_match.url_name == 'reg' %}active{% endif %} sign sign-in'>Регистрация</a>
-                        
-                        <a id='loginbut' data-tooltip="Войти в аккаунт" href="{% url 'user' %}" class='{% if request.resolver_match.url_name == 'user' %}active{% endif %} svg-solo sign sign-up'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M12,21V19h7V5H12V3h7q0.83,0 1.41,0.59T21,5V19q0,0.82-0.59,1.41T19,21H12Zm-2-4L8.63,15.55L11.18,13H3V11h8.18L8.63,8.45L10,7l5,5l-5,5Z"/></svg>
-                        </a>
-                    {% else %}
-                        <a id='addartbut' data-tooltip="Добавить статью" href="{% url 'news-add' %}" class='{% if request.resolver_match.url_name == 'news-add' %}active{% endif %} svg-solo sign sign-up'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M11,13H5V11h6V5h2v6h6v2H13v6H11V13Z"/></svg>
-                        </a>
+                    <button id='menubut'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="hsl(0, 0%, 48%)"><path d="M3,18V16H21v2H3Zm0-5V11H21v2H3ZM3,8V6H21V8H3Z"/></svg>
+                    </button>
+                </div>
 
-                        <a id='profilebut' data-tooltip="Профиль" href="{% url 'profile' %}" class='{% if request.resolver_match.url_name == 'profile' %}active{% endif %} svg-solo sign sign-up'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" height="26px" width="26px" fill="hsl(0, 0%, 48%)"><g transform="scale(1.1)"><path d="M9.18,10.83Q8,9.65 8,8T9.18,5.18T12,4t2.83,1.18T16,8t-1.17,2.82T12,12T9.18,10.83ZM4,20V17.2q0-0.85 0.44-1.56q0.44-0.71 1.16-1.09q1.55-0.78 3.15-1.16T12,13t3.25,0.39t3.15,1.16q0.72,0.38 1.16,1.09T20,17.2V20H4Zm2-2H18V17.2q0-0.27-0.14-0.5q-0.14-0.22-0.36-0.35q-1.35-0.68-2.72-1.01T12,15T9.23,15.34T6.5,16.35Q6.28,16.48 6.14,16.7Q6,16.93 6,17.2V18Zm7.41-8.59Q14,8.82 14,8T13.41,6.59T12,6T10.59,6.59Q10,7.18 10,8t0.59,1.41T12,10t1.41-0.59ZM12,8Zm0,10Z"/></g></svg>
-                        </a>
 
-                        <form action='{% url 'exit' %}' method='POST' class="exit-form sign">
-                            {% csrf_token %}
-                            <button id='logoutbut' data-tooltip="Выйти из аккаунта" type='submit'>
-                                <a class='svg-flex sign sign-in' id='logout'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M5,21q-0.83,0-1.41-0.59T3,19V5Q3,4.17 3.59,3.59T5,3h7V5H5V19h7v2H5Zm11-4l-1.38-1.45L17.18,13H9V11h8.18L14.63,8.45L16,7l5,5l-5,5Z"/></svg>
-                                </a>
-                            </button>
-                        </form>        
-                {% endif %}
+
+                <div class='navbar'>
+                    <div class='nav1'>
+                        <a href="{% url 'uslugi' %}" class='{% if request.resolver_match.url_name == 'uslugi' %}active{% endif %}'>Услуги</a>
+                        <a href="{% url 'contacts' %}" class='{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}'>Контакты</a>
+                        <a href="{% url 'about' %}" class='{% if request.resolver_match.url_name == 'about' %}active{% endif %}'>Про нас</a>
+                        {% if user.is_superuser %}
+                            <a href="/admin/" class='adminka'>Админка</a>
+                        {% endif %}
+                    </div>
+                    <div class='nav2'>
+
+                        <button id="theme-toggle" class='theme-toggle2 hint' data-tooltip="Сменить тему" type="button">
+                            <svg class='icon-sun' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M14.13,14.13Q15,13.25 15,12T14.13,9.88T12,9T9.88,9.88T9,12t0.88,2.13T12,15t2.13-0.88ZM8.46,15.54Q7,14.08 7,12Q7,9.92 8.46,8.46T12,7t3.54,1.46T17,12t-1.46,3.54T12,17q-2.07,0-3.54-1.46ZM5,13H1V11H5v2Zm18,0H19V11h4v2ZM11,5V1h2V5H11Zm0,18V19h2v4H11ZM6.4,7.75L3.88,5.32L5.3,3.85l2.4,2.5L6.4,7.75Zm12.3,12.4l-2.42-2.52l1.32-1.38l2.52,2.43L18.7,20.15ZM16.25,6.4l2.43-2.52L20.15,5.3l-2.5,2.4l-1.4-1.3ZM3.85,18.7l2.53-2.43L7.75,17.6L5.33,20.13L3.85,18.7ZM12,12Z"/></svg>
+                            <svg class='icon-moon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M12,21q-3.75,0-6.38-2.63T3,12T5.63,5.63T12,3q0.35,0 0.69,0.02q0.34,0.02 0.66,0.07q-1.03,0.73-1.64,1.89T11.1,7.5q0,2.25 1.57,3.82T16.5,12.9q1.38,0 2.53-0.61t1.88-1.64q0.05,0.33 0.07,0.66T21,12q0,3.75-2.63,6.38T12,21Zm0-2q2.2,0 3.95-1.21t2.55-3.16q-0.5,0.13-1,0.2t-1,0.08q-3.07,0-5.24-2.16Q9.1,10.58 9.1,7.5q0-0.5 0.08-1t0.2-1Q7.43,6.3 6.21,8.05T5,12q0,2.9 2.05,4.95T12,19Zm-0.25-6.75Z"/></svg>
+                        </button>
+
+                        {% if not user.is_authenticated %}
+                            <a href="{% url 'reg' %}" class='{% if request.resolver_match.url_name == 'reg' %}active{% endif %} sign sign-in'>Регистрация</a>
+                            
+                            <a id='loginbut' data-tooltip="Войти в аккаунт" href="{% url 'user' %}" class='hint {% if request.resolver_match.url_name == 'user' %}active{% endif %} svg-solo sign sign-up'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M12,21V19h7V5H12V3h7q0.83,0 1.41,0.59T21,5V19q0,0.82-0.59,1.41T19,21H12Zm-2-4L8.63,15.55L11.18,13H3V11h8.18L8.63,8.45L10,7l5,5l-5,5Z"/></svg>
+                            </a>
+                        {% else %}
+                            <a id='addartbut' data-tooltip="Добавить статью" href="{% url 'news-add' %}" class='hint {% if request.resolver_match.url_name == 'news-add' %}active{% endif %} svg-solo sign sign-up'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M11,13H5V11h6V5h2v6h6v2H13v6H11V13Z"/></svg>
+                            </a>
+
+                            <a id='profilebut' data-tooltip="Профиль" href="{% url 'profile' %}" class='hint {% if request.resolver_match.url_name == 'profile' %}active{% endif %} svg-solo sign sign-up'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" height="26px" width="26px" fill="hsl(0, 0%, 48%)"><g transform="scale(1.1)"><path d="M9.18,10.83Q8,9.65 8,8T9.18,5.18T12,4t2.83,1.18T16,8t-1.17,2.82T12,12T9.18,10.83ZM4,20V17.2q0-0.85 0.44-1.56q0.44-0.71 1.16-1.09q1.55-0.78 3.15-1.16T12,13t3.25,0.39t3.15,1.16q0.72,0.38 1.16,1.09T20,17.2V20H4Zm2-2H18V17.2q0-0.27-0.14-0.5q-0.14-0.22-0.36-0.35q-1.35-0.68-2.72-1.01T12,15T9.23,15.34T6.5,16.35Q6.28,16.48 6.14,16.7Q6,16.93 6,17.2V18Zm7.41-8.59Q14,8.82 14,8T13.41,6.59T12,6T10.59,6.59Q10,7.18 10,8t0.59,1.41T12,10t1.41-0.59ZM12,8Zm0,10Z"/></g></svg>
+                            </a>
+
+                            <form action='{% url 'exit' %}' method='POST' class="exit-form sign">
+                                {% csrf_token %}
+                                <button id='logoutbut' class='hint' data-tooltip="Выйти из аккаунта" type='submit'>
+                                    <a class='svg-flex sign sign-in' id='logout'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M5,21q-0.83,0-1.41-0.59T3,19V5Q3,4.17 3.59,3.59T5,3h7V5H5V19h7v2H5Zm11-4l-1.38-1.45L17.18,13H9V11h8.18L14.63,8.45L16,7l5,5l-5,5Z"/></svg>
+                                    </a>
+                                </button>
+                            </form>        
+                    {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,11 +79,12 @@
             <a href="{% url 'contacts' %}" class='{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}'>Контакты</a>
             <a href="{% url 'about' %}" class='{% if request.resolver_match.url_name == 'about' %}active{% endif %}'>Про нас</a>
             {% if not user.is_authenticated %}
-                <a href="{% url 'reg' %}" class='{% if request.resolver_match.url_name == 'reg' %}active{% endif %} sign sign-in'>Регистрация</a>
-                
                 <a id='loginbut' data-tooltip="Войти в аккаунт" href="{% url 'user' %}" class='{% if request.resolver_match.url_name == 'user' %}active{% endif %} svg-solo sign sign-up'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M12,21V19h7V5H12V3h7q0.83,0 1.41,0.59T21,5V19q0,0.82-0.59,1.41T19,21H12Zm-2-4L8.63,15.55L11.18,13H3V11h8.18L8.63,8.45L10,7l5,5l-5,5Z"/></svg>
+                    <span>Войти</span>
                 </a>
+            
+                <a id='regbut' href="{% url 'reg' %}" class='{% if request.resolver_match.url_name == 'reg' %}active{% endif %} sign sign-in'>Регистрация</a>
             {% else %}
                 <a id='addartbut' data-tooltip="Добавить статью" href="{% url 'news-add' %}" class='{% if request.resolver_match.url_name == 'news-add' %}active{% endif %} svg-solo sign sign-up'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px"><path d="M11,13H5V11h6V5h2v6h6v2H13v6H11V13Z"/></svg>

@@ -18,6 +18,8 @@
     --avtor:hsl(218, 40%, 7%);
     --red-but-font:hsl(208, 100%, 97%);
     --avatar:hsl(0, 0%, 48%);
+
+    --main-width: 70%;
 }
 
 :root[data-theme="light"] {
@@ -37,6 +39,8 @@
     --avtor:#ffffff;
     --red-but-font:#ffffff;
     --avatar:#ffffff;
+    
+    --main-width: 70%;
 }
 
 /* ------------------------------------------------------------ */
@@ -74,6 +78,8 @@ body {
 /* ------------------------------------------------------------ */
 
 header {
+    display: flex;
+    justify-content: center;
     position: fixed;
     width: 100%;
     top: 0; 
@@ -128,14 +134,24 @@ header {
 }
 
 .header {
+    width: 100%;
     display: flex;
     height: 80px;
-    padding: 10px 15%;
+    padding: 10px;
     text-align: center;
     align-items: center;
+    justify-content: center;
     border-bottom: 1px solid var(--text-inactive);
     z-index: 1000;
     overflow: hidden;
+}
+
+.header-inside {
+    width: var(--main-width);
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
@@ -396,19 +412,19 @@ button.sign.sign-in:hover {
     backdrop-filter: blur(8px); 
 }
 
-#theme-toggle,
-#logoutbut,
-#profilebut,
-#addartbut,
-#loginbut {
+#theme-toggle.hint,
+#logoutbut.hint,
+#profilebut.hint,
+#addartbut.hint,
+#loginbut.hint {
     position: relative;
 }
 
-#theme-toggle::after,
-#logoutbut::after,
-#profilebut::after,
-#addartbut::after,
-#loginbut::after {
+#theme-toggle.hint::after,
+#logoutbut.hint::after,
+#profilebut.hint::after,
+#addartbut.hint::after,
+#loginbut.hint::after {
     content: attr(data-tooltip);
     position: absolute;
     left: 50%;
@@ -428,16 +444,16 @@ button.sign.sign-in:hover {
     z-index: 1000;
 }
 
-#theme-toggle:hover::after,
-#theme-toggle:focus-visible::after, 
-#logoutbut:hover::after,
-#logoutbut:focus-visible::after,
-#profilebut:hover::after,
-#profilebut:focus-visible::after,
-#addartbut:hover::after,
-#addartbut:focus-visible::after,
-#loginbut:hover::after,
-#loginbut:focus-visible::after {
+#theme-toggle.hint:hover::after,
+#theme-toggle.hint:focus-visible::after, 
+#logoutbut.hint:hover::after,
+#logoutbut.hint:focus-visible::after,
+#profilebut.hint:hover::after,
+#profilebut.hint:focus-visible::after,
+#addartbut.hint:hover::after,
+#addartbut.hint:focus-visible::after,
+#loginbut.hint:hover::after,
+#loginbut.hint:focus-visible::after {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0);
@@ -477,7 +493,8 @@ button.sign.sign-in:hover {
 /* ------------------------------------------------------------ */
 
 main {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -523,7 +540,7 @@ main a:not(.alt, .art-ref, .art-del) {
 /* ------------------------------------------------------------ */
 
 .articles {
-    width: 70%;
+    width: var(--main-width);
     margin-top: 2%;
     align-self: start;
 }
@@ -541,7 +558,7 @@ main a:not(.alt, .art-ref, .art-del) {
     padding: 10px 20px;
     border: 1px dashed var(--text-inactive);
     border-radius: 5px;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
 }
 
 .article:hover {
@@ -605,6 +622,10 @@ main a:not(.alt, .art-ref, .art-del) {
 
 .article .article-info div p:last-of-type {
     margin-top: 1%;
+}
+
+.article .article-info div p b {
+    color: var(--text-inactive);
 }
 
 .article a.alt {
@@ -699,16 +720,23 @@ main a:not(.alt, .art-ref, .art-del) {
 /* --------------------Стили страницы услуг-------------------- */
 /* ------------------------------------------------------------ */
 
-#blocks {
-    margin-left: 15%;
+.uslugi {
+    width: var(--main-width);
     display: flex;
-    width: 70%;
+    flex-direction: column;
+    justify-content: center;
 }
 
+#blocks {
+    display: flex;
+    width: 100%;
+}
+
+
 .uslugi #blocks.usl {
-    margin-left: 15%;
+
     display: block;
-    width: 70%;
+
 }
 
 .uslugi #blocks.usl .block {
@@ -782,7 +810,7 @@ main a:not(.alt, .art-ref, .art-del) {
 /* ------------------------------------------------------------ */
 
 .registerMain {
-    width: 60%;
+    width: var(--main-width);
     height: 650px;
     display: flex;
     justify-content: center;
@@ -908,7 +936,8 @@ input:-webkit-autofill:focus {
 }
 
 .profile {
-    width: 60%;
+    width: var(--main-width);
+    padding: 5% 0;
 }
 
 .profile h2 {
@@ -1013,7 +1042,7 @@ input:-webkit-autofill:focus {
 .updateForm input[type="file"] {
     color: var(--text-inactive);
     padding: 1%;
-    width: auto;
+    width: 100%;
 }
 
 .updateForm input[type="file"]::file-selector-button {
@@ -1146,8 +1175,8 @@ input:-webkit-autofill:focus {
 /* ------------------------------------------------------------ */
 
 .addArticleMain {
-    margin-top: 4%;
-    width: 50%;
+    margin-top: 5%;
+    width: var(--main-width);
     height: 650px;
     display: flex;
     justify-content: center;
@@ -1164,6 +1193,7 @@ input:-webkit-autofill:focus {
 
 .addArticle h2 {
     color: var(--text-inactive);
+    margin-top: 0;
 }
 
 .addArticle:hover {
@@ -1251,8 +1281,7 @@ input:-webkit-autofill:focus {
 
 .delArticleMain {
     margin-top: 2%;
-    width: 50%;
-    height: 650px;
+    width: var(--main-width);
     display: flex;
     justify-content: center;
     align-items: start;
@@ -1285,7 +1314,7 @@ input:-webkit-autofill:focus {
 }
 
 .delArticleMain .delArticleForm .delButtons button,a.del {
-    padding: 10px 16px;
+    padding: 1% 2%;
     width: 49%;
     font-size: 14px !important;
     border: 1px solid var(--conter-color);
@@ -1317,9 +1346,13 @@ footer {
     height: 50px;
     background-color: var(--primary);
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     padding: 10px 30px;
+}
+
+footer span {
+    font-size: 16px;
 }
 
 /* ------------------------------------------------------------ */
@@ -1361,6 +1394,9 @@ footer {
 
 .hiddenbar {
     display: flex;
+    top: 100%;
+    left: 0;
+    right: 0;
     text-align: center;
     flex-direction: column;
     align-items: center;
@@ -1368,10 +1404,57 @@ footer {
     padding: 2% 5%;
 }
 
+.hiddenbar * {
+    color: var(--text-inactive);
+}
+
 .hiddenbar *:not(:last-child) {
     margin-bottom: 2%;
     border: 1px solid var(--text-inactive);
     border-radius: 5px;
+}
+
+.hiddenbar form a svg {
+    margin: 0 !important;
+    margin-left: 0.5% !important;
+}
+
+.hiddenbar form a span {
+    margin-bottom: 0 !important;
+
+}
+
+.hiddenbar form a:hover {
+    background-color: var(--conter-color);
+    transition: all .5s ease;
+}
+
+.hiddenbar form a:hover span {
+    color: var(--text-active) !important;
+}
+
+.hiddenbar form a:hover svg {
+    fill: var(--text-active) !important;
+}
+
+.hiddenbar *:not(:last-child):hover {
+    color: var(--text-active);
+    border: 1px solid var(--text-active);
+    transition: all .5s ease;
+}
+
+.hiddenbar *:not(:last-child):hover span {
+    color: var(--text-active);
+    transition: all .5s ease;
+}
+
+.hiddenbar *:not(:last-child) svg {
+    border: none !important
+}
+
+.hiddenbar *:not(:last-child):hover svg {
+    fill: var(--text-active);
+    transition: all .5s ease;
 }
 
 .hiddenbar a {
@@ -1384,7 +1467,7 @@ footer {
 
 .hiddenbar #addartbut, 
 .hiddenbar #profilebut {
-    background-color: var(--primary) !important;
+    background: none !important;
     display: flex;
     align-items: center;
     padding: 1% !important;
@@ -1441,12 +1524,55 @@ footer {
     border: none;
 }
 
+.hiddenbar #logoutbut:hover span {
+    color: var(--red-but-font) !important;
+    transition: all .5s ease;
+}
+
+.hiddenbar #logoutbut:hover svg {
+    fill: var(--red-but-font) !important;
+    transition: all .5s ease;
+}
+
+.hiddenbar #loginbut {
+    display: flex;
+    align-items: center;
+    background-color: none !important;
+    background: none !important;
+}
+
+.hiddenbar #loginbut svg {
+    margin: 0;
+}
+
+.hiddenbar #loginbut span {
+    padding: 1%;
+    width: 100%;
+    width: 98%;
+    margin-right: 4%;
+}
+
+.hiddenbar #regbut {
+    border: 1px solid var(--conter-color);
+    border-radius: 5px;
+    color: var(--conter-color);
+    background: none;
+}
+
+.hiddenbar #regbut:hover {
+    border: 1px solid var(--conter-color);
+    border-radius: 5px;
+    color: var(--red-but-font);
+    background: var(--conter-color);
+    transition: all .5s ease;
+}
+
 .hiddenbar {
     position: absolute;
     left: 0;
     right: 0;
     transform: translateY(calc(-100% + 3px));
-    transition: all 1s ease;
+    transition: transform 1s ease;
     z-index: -1 !important;
 }
 
@@ -1457,12 +1583,57 @@ footer {
     z-index: 999 !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 820px) {
     .navbar {
         display: none;
     }
 
     .short-navbar {
         display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --main-width: 80%;
+    }
+    h2 {
+        font-size: 30px !important;
+        overflow-wrap: anywhere;
+    }
+    h3 {
+        font-size: 24px !important;
+        overflow-wrap: anywhere;
+    }
+    p {
+        font-size: 14px !important;
+        overflow-wrap: anywhere;
+    }
+    footer span {
+    font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --main-width: 90%;
+    }
+    footer span {
+    font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    h2 {
+        font-size: 26px !important;
+        overflow-wrap: anywhere;
+    }
+    h3 {
+        font-size: 18px !important;
+        overflow-wrap: anywhere;
+    }
+    p {
+        font-size: 12px !important;
+        overflow-wrap: anywhere;
     }
 }
