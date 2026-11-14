@@ -82,18 +82,19 @@ body {
 header {
     display: flex;
     justify-content: center;
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    margin-top: calc(env(safe-area-inset-top) * -1);
     padding-top: env(safe-area-inset-top);
     background: var(--primary);
 }
 
-.telegram-ios-webview header {
+.telegram-webview header {
+    position: relative;
+    top: auto;
+    left: auto;
     margin-top: 0;
     padding-top: 0;
 }
@@ -478,11 +479,16 @@ button.sign.sign-in:hover {
 /* ------------------------------------------------------------ */
 
 .messagesbar {
+    margin-top: calc(101px + env(safe-area-inset-top));
     background-color: var(--messagebar);
     width: 100%;
     display: flex;
     justify-content: center;
     
+}
+
+.telegram-webview .messagesbar {
+    margin-top: 0;
 }
 
 .messages {

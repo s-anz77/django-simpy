@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <script>
-        if (/Telegram/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            document.documentElement.classList.add('telegram-ios-webview');
+        if (/Telegram/i.test(navigator.userAgent) || window.TelegramWebviewProxy || window.TelegramWebviewProxyProto) {
+            document.documentElement.classList.add('telegram-webview');
         }
     </script>
     <title>{% block title %}{% endblock %}</title>
     <link rel="icon" type="image/svg+xml" href="{% static 'blog/icons/favicon.svg' %}">
-    <link rel="stylesheet" href="{% static 'blog/main.css' %}?v=20261114-3">
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}?v=20261114-4">
     <script src="{% static 'blog/js/three.min.js' %}" defer></script>
     <script src="{% static 'blog/js/vanta.waves.min.js' %}" defer></script>
     <script src="{% static 'blog/js/main.js' %}" defer></script>
