@@ -82,10 +82,12 @@ body {
 header {
     display: flex;
     justify-content: center;
-    position: fixed;
+    position: -webkit-sticky;
+    position: sticky;
     width: 100%;
-    top: 0; 
+    top: 0;
     left: 0;
+    z-index: 1000;
 }
 
 :root[data-theme="dark"] .hiddenbar::after,
@@ -468,7 +470,6 @@ button.sign.sign-in:hover {
 /* ------------------------------------------------------------ */
 
 .messagesbar {
-    margin-top: 100px;
     background-color: var(--messagebar);
     width: 100%;
     display: flex;
