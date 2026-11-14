@@ -88,6 +88,9 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    margin-top: calc(env(safe-area-inset-top) * -1);
+    padding-top: env(safe-area-inset-top);
+    background: var(--primary);
 }
 
 :root[data-theme="dark"] .hiddenbar::after,
