@@ -1470,7 +1470,7 @@ footer span {
 }
 
 .hiddenbar * {
-    width: 70%;
+    width: var(--main-width);
 }
 
 .hiddenbar #addartbut, 
@@ -1491,57 +1491,6 @@ footer span {
 .hiddenbar #profilebut span {
     width: 98%;
     margin-right: 4%;
-}
-
-.hiddenbar form {
-    width: 72%;
-    display: flex;
-    justify-content: center;
-}
-
-.hiddenbar .exit-form * {
-    margin: 0;
-    margin-bottom: 1%;
-    padding: 0 !important;
-}
-
-.hiddenbar #logoutbut {
-    background: none !important;
-    background-color: none !important;
-    width: 100%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.hiddenbar #logoutbut a {
-    display: flex;
-    width: 100%;
-    justify-content: start;
-    border: 1px solid var(--conter-color);
-    border-radius: 5px;
-    padding: 1% !important;
-}
-
-.hiddenbar #logoutbut a span {
-    width: 98%;
-    margin-right: 4%;
-    font-size: 16px;
-    color: var(--conter-color);
-}
-
-.hiddenbar #logoutbut a svg {
-    border: none;
-}
-
-.hiddenbar #logout:hover span {
-    color: var(--red-but-font) !important;
-    transition: all .5s ease;
-}
-
-.hiddenbar #logout:hover svg {
-    fill: var(--red-but-font) !important;
-    transition: all .5s ease;
 }
 
 .hiddenbar #loginbut {
@@ -1594,7 +1543,41 @@ footer span {
     visibility: visible;
 }
 
+.hiddenbar #logoutbut2 {
+    all: unset;
+    display: block;
+    cursor: pointer;
+}
 
+.hiddenbar #logoutbut2 * {
+    all: unset;
+    display: block;
+    cursor: pointer;
+}
+
+.hiddenbar #logoutbut2 {
+    margin-bottom: 1%;
+    border: 1px solid var(--conter-color);
+    width: var(--main-width);
+    padding: 1%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.hiddenbar #logoutbut2 button span {
+    color: var(--conter-color);
+}
+
+.hiddenbar #logoutbut2:hover {
+    background-color: var(--conter-color);
+    transition: all .5s ease;
+}
+
+.hiddenbar #logoutbut2:hover span {
+    color: var(--red-but-font);
+    transition: all .5s ease;
+}
 
 @media (max-width: 900px) {
     #blocks {
