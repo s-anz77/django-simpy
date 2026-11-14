@@ -69,10 +69,14 @@ WSGI_APPLICATION = 'firstdjangoproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+RAILWAY_VOLUME_PATH = Path(
+    os.environ.get('RAILWAY_VOLUME_MOUNT_PATH', BASE_DIR)
+)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': RAILWAY_VOLUME_PATH / 'db.sqlite3',
     }
 }
 
