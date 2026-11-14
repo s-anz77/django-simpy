@@ -1695,3 +1695,20 @@ footer span {
     }
 
 }
+
+@media (hover: hover) and (pointer: fine) {
+    .hiddenbar form a:hover {
+        background-color: var(--conter-color);
+        transition: all .5s ease;
+    }
+
+    .hiddenbar form a:hover span,
+    .hiddenbar #logoutbut:hover span {
+        color: var(--red-but-font) !important;
+    }
+
+    .hiddenbar form a:hover svg,
+    .hiddenbar #logoutbut:hover svg {
+        fill: var(--red-but-font) !important;
+    }
+}
