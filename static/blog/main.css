@@ -93,6 +93,11 @@ header {
     background: var(--primary);
 }
 
+.telegram-ios-webview header {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 :root[data-theme="dark"] .hiddenbar::after,
 :root[data-theme="dark"] .header::after {
     content: "";
