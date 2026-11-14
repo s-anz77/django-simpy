@@ -1639,37 +1639,41 @@ input:-webkit-autofill:focus {
 }
 
 .hiddenbar #logoutbut2 {
-    all: unset;
-    display: block;
-    cursor: pointer;
-}
-
-.hiddenbar #logoutbut2 * {
-    all: unset;
-    display: block;
-    cursor: pointer;
-}
-
-.hiddenbar #logoutbut2 {
-    margin-bottom: 1%;
-    border: 1px solid var(--conter-color);
-    width: var(--main-width);
-    padding: 1%;
-    border-radius: 5px;
     display: flex;
     justify-content: center;
+    width: var(--main-width);
+    margin-bottom: 1%;
+    border: 1px solid var(--conter-color);
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.hiddenbar #logoutbut2 button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--conter-color);
+    font: inherit;
+    cursor: pointer;
 }
 
 .hiddenbar #logoutbut2 button span {
     color: var(--conter-color);
+    width: auto;
 }
 
-.hiddenbar #logoutbut2:hover {
+.hiddenbar #logoutbut2:hover,
+.hiddenbar #logoutbut2:focus-within {
     background-color: var(--conter-color);
     transition: all .5s ease;
 }
 
-.hiddenbar #logoutbut2:hover span {
+.hiddenbar #logoutbut2:hover button,
+.hiddenbar #logoutbut2:focus-within button,
+.hiddenbar #logoutbut2:hover span,
+.hiddenbar #logoutbut2:focus-within span {
     color: var(--red-but-font);
     transition: all .5s ease;
 }
