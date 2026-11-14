@@ -14,7 +14,7 @@ def register(request):
             user = form.save()
             messages.success(request, f'Пользователь {user.username} был успешно создан!')
             login(request, user)
-            return redirect('home')
+            return redirect('articles')
     else:
         form = UserRegisterForm()
 

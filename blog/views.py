@@ -72,7 +72,7 @@ class UpdateNewsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class DeleteNewsView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = News
-    success_url = '/'
+    success_url = '/articles'
     template_name = 'blog/delete_news.html'
 
     def test_func(self):
@@ -87,6 +87,9 @@ class DeleteNewsView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             ctx['title'] = self.object.title
     
             return ctx
+
+def intro(request):
+    return render(request, 'blog/intro.html')
 
 def uslugi(request):
     return render(request, 'blog/uslugi.html')

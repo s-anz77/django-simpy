@@ -37,6 +37,7 @@
 
                 <div class='navbar'>
                     <div class='nav1'>
+                        <a href="{% url 'articles' %}" class='{% if request.resolver_match.url_name == 'articles' %}active{% endif %}'>Статьи</a>
                         <a href="{% url 'uslugi' %}" class='{% if request.resolver_match.url_name == 'uslugi' %}active{% endif %}'>Услуги</a>
                         <a href="{% url 'contacts' %}" class='{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}'>Контакты</a>
                         <a href="{% url 'about' %}" class='{% if request.resolver_match.url_name == 'about' %}active{% endif %}'>Про нас</a>
@@ -80,6 +81,7 @@
             </div>
         </div>
         <div class='hiddenbar'>
+            <a href="{% url 'articles' %}" class='{% if request.resolver_match.url_name == 'articles' %}active{% endif %}'>Статьи</a>
             <a href="{% url 'uslugi' %}" class='{% if request.resolver_match.url_name == 'uslugi' %}active{% endif %}'>Услуги</a>
             <a href="{% url 'contacts' %}" class='{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}'>Контакты</a>
             <a href="{% url 'about' %}" class='{% if request.resolver_match.url_name == 'about' %}active{% endif %}'>Про нас</a>

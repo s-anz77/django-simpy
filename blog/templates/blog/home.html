@@ -23,7 +23,7 @@
         <div class='paginator'>
             {% if is_paginated %}
                 {% if page_obj.has_previous %}
-                    <a href='{% url 'home' %}'>&lt;&lt;</a>
+                    <a href='{% url 'intro' %}'>&lt;&lt;</a>
                     <a href='?page={{ page_obj.previous_page_number }}'>&lt;</a>
                 {% else %}
                     <a class='inactive'>&lt;&lt;</a>

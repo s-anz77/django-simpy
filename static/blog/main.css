@@ -317,6 +317,20 @@ button.sign.sign-in:hover {
     transition: all .5s ease;
 }
 
+.navbar .nav1 a {
+    position: relative;
+}
+
+.navbar .nav1 a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px; /* расстояние до текста */
+    height: 2px;
+    background: var(--text-active);
+}
+
 .navbar .nav2 .add-art.active {
     background-color: var(--text-active);
     border: 1px solid var(--text-active) !important;
@@ -1692,6 +1706,10 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 900px) {
+    :root, :root[data-theme="light"] {
+        --main-width: 80%;
+    }
+    
     #blocks {
         flex-direction: column;
         width: 100%;
@@ -1729,9 +1747,7 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 768px) {
-    :root, :root[data-theme="light"] {
-        --main-width: 80%;
-    }
+
 
     
     h2 {
