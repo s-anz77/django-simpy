@@ -12,13 +12,13 @@ class ShowNewsView(ListView):
     template_name = 'blog/home.html'
     context_object_name = 'news'
     ordering = ['-date']
-    paginate_by = 2
+    paginate_by = 4
 
 class UserAllNewsView(ListView):
     model = News
     template_name = 'blog/user_news.html'
     context_object_name = 'news'
-    paginate_by = 2
+    paginate_by = 4
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))

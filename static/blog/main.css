@@ -88,7 +88,8 @@ header {
     left: 0;
 }
 
-:root[data-theme="dark"] .hiddenbar::after {
+:root[data-theme="dark"] .hiddenbar::after,
+:root[data-theme="dark"] .header::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -107,7 +108,8 @@ header {
     animation: color-wave 3s ease-in-out infinite alternate;
 }
 
-:root[data-theme="light"] .hiddenbar::after {
+:root[data-theme="light"] .hiddenbar::after,
+:root[data-theme="light"] .header::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -687,8 +689,9 @@ main a:not(.alt, .art-ref, .art-del) {
 /* ----------------------Стили пагинации----------------------- */
 
 .articles .paginator {
-    margin-top: 2%;
+    margin: 2% 0;
     display: flex;
+    justify-content: center;
 }
 
 .articles .paginator a {
@@ -1405,6 +1408,8 @@ footer span {
     align-items: center;
     background-color: var(--primary);
     padding: 2% 5%;
+    visibility: hidden;
+    transition: all 1s ease;
 }
 
 .hiddenbar * {
@@ -1501,6 +1506,8 @@ footer span {
 }
 
 .hiddenbar #logoutbut {
+    background: none !important;
+    background-color: none !important;
     width: 100%;
     padding: 0;
     display: flex;
@@ -1584,7 +1591,10 @@ footer span {
     transform: none !important;
     transition: all 1s ease;
     z-index: 999 !important;
+    visibility: visible;
 }
+
+
 
 @media (max-width: 900px) {
     #blocks {
@@ -1606,7 +1616,19 @@ footer span {
         display: none;
     }
 
+    .hiddenbar {
+        display: flex;
+    }
+
     .short-navbar {
+        display: flex;
+    }
+
+    .header::after {
+        display: none;
+    }
+
+    .hiddenbar::after {
         display: flex;
     }
 }
@@ -1657,4 +1679,19 @@ footer span {
         font-size: 12px !important;
         overflow-wrap: anywhere;
     }
+}
+
+@media (min-width: 821px) {
+    .hiddenbar {
+        display: none;
+    }
+
+    .hiddenbar.activebar {
+        display: none;
+    }
+
+    .hiddenbar::after {
+        display: none;
+    }
+
 }
