@@ -61,7 +61,9 @@
                 </div>
             </div>
         </div>
+
         <div class="introBlock2to3"></div>
+
         <div class='introBlock3'>
             <div class='introBlock3Content'>
                 <div class="introBlock3Header">
@@ -78,7 +80,7 @@
                         <article>
                             <h3>{{ article.title }}</h3>
                             <p>{{ article.text|striptags|linebreaksbr }}</p>
-                            <a href='{% url 'news-detail' article.id %}' class='alt'>Читать далее...</a>
+                            <a href='{% url 'news-detail' article.id %}' class='alt'><span>Читать далее...</span></a>
                             <hr>
                             <div class="articleInfo">
                                 <img src="{{ article.avtor.profile.img.url }}" alt="{{ article.avtor.username }}">

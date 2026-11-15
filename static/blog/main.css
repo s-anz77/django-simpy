@@ -908,6 +908,7 @@ main.intro--full-width {
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article:hover .articleInfo small #avtorLink {
     color: var(--text-active);
+    transition: all .5s ease;
 }
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article h3 {
@@ -923,22 +924,30 @@ main.intro--full-width {
     color: var(--text-inactive);
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    line-clamp: 4;
-    -webkit-line-clamp: 4;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
     overflow: hidden;
 }
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article hr {
     border: 1px solid var(--background2);
     margin: 8px 0;
-    margin-top: auto;
+    
 }
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article a {
     font-weight: 600;
+    font-size: 14px;
+    text-align: right;
+    text-decoration: none;
+    margin-top: auto;
 }
 
-#intro-page .introBlock3 .introBlock3Content .contentBlock3 article a.alt:hover {
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article a.alt span {
+    color: var(--text-inactive);
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article a.alt span:hover {
     color: var(--conter-color) !important;
     transition: all .5s ease;
 }
@@ -951,9 +960,15 @@ main.intro--full-width {
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article .articleInfo img {
     height: 40px;
     width: 40px;
-    border: 1px solid var(--text-inactive);
+    border: 1px solid var(--background2);
     border-radius: 5px;
     margin-right: 10px;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article:hover .articleInfo img {
+    border: 1px solid var(--text-inactive);
+    background-color: var(--red-but-font);
+    transition: all .5s ease;
 }
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article .articleInfo small {
