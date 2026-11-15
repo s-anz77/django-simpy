@@ -706,6 +706,7 @@ main.intro--full-width {
 #intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons #block1AboutBut:hover {
     color: var(--red-but-font);
     background-color: var(--3);
+    border: 2px solid var(--text-active);
     transition: all .5s ease;
 }
 
@@ -716,8 +717,8 @@ main.intro--full-width {
     font-size: 16px;
     font-weight: 600;
     background-color: var(--background);
-    color: var(--text-inactive);
-    border: 2px solid var(--text-inactive);
+    color: var(--text-active);
+    border: 2px dashed var(--background2);
     text-align: center;
 }
 
@@ -882,6 +883,8 @@ main.intro--full-width {
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article {
     width: 30%;
     height: 90%;
+    display: flex;
+    flex-direction: column;
     background-color: var(--messagebar);
     border: 2px dashed var(--background2);
     border-radius: 5px;
@@ -895,6 +898,11 @@ main.intro--full-width {
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article:hover h3 {
     color: var(--text-active);
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article:hover hr {
+    border: 1px solid var(--text-inactive);
     transition: all .5s ease;
 }
 
@@ -915,13 +923,15 @@ main.intro--full-width {
     color: var(--text-inactive);
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    line-clamp: 4;
     -webkit-line-clamp: 4;
     overflow: hidden;
 }
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article hr {
-    border: 1px solid var(--text-inactive);
+    border: 1px solid var(--background2);
     margin: 8px 0;
+    margin-top: auto;
 }
 
 #intro-page .introBlock3 .introBlock3Content .contentBlock3 article a {
@@ -979,20 +989,24 @@ main.intro--full-width {
     color: var(--text-active);
 }
 
+.articles h2 {
+    color: var(--text-inactive);
+}
+
 .articles h3 {
     color: var(--text-inactive);
 }
 
 .article {
-    background-color: var(--primary);
+    background-color: var(--messagebar);
     padding: 10px 20px;
-    border: 1px dashed var(--text-inactive);
+    border: 2px dashed var(--background2);
     border-radius: 5px;
     margin-bottom: 2%;
 }
 
 .article:hover {
-    border: 1px dashed var(--text-active);
+    border: 2px solid var(--text-active);
     transition: all .5s ease;
 }
 
@@ -1021,7 +1035,12 @@ main.intro--full-width {
 
 .article hr {
     margin: 1% 0;
-    border: 1px dashed var(--text-inactive);
+    border: 1px solid var(--background2);
+}
+
+.article:hover hr {
+    border: 1px solid var(--text-inactive);
+    transition: all .5s ease;
 }
 
 .article img {
@@ -1037,11 +1056,17 @@ main.intro--full-width {
 }
 
 .article .article-info a.avtor {
-    background-color: var(--avtor);
+    background-color: var(--messagebar);
     font-size: 16px;
     text-decoration: underline;
     border: none;
     padding: 0;
+    color: var(--text-inactive);
+}
+
+.article:hover .article-info a.avtor {
+    color: var(--text-active);
+    transition: all .5s ease;
 }
 
 .article .article-info div {
@@ -1126,21 +1151,21 @@ main.intro--full-width {
     background-color: var(--primary);
     font-weight: 500;
     color: var(--text-active);
-    border: 2px solid var(--messagebar);
+    border: 2px dashed var(--background2);
     border-radius: 5px;
     margin-right: 1%;
 }
 
 .articles .paginator a:not(.inactive):hover{
-    background-color: var(--messagebar);
     color: var(--text-active);
+    border: 2px solid var(--text-active);
     transition: all .5s ease;
 }
 
 .articles .paginator a.inactive {
     background-color: var(--messagebar);
     color: var(--text-inactive);
-    border: 1px solid var(--primary);
+    border: 1px solid var(--background2);
 }
 
 .articles .paginator a.inactive:hover {
@@ -1189,7 +1214,7 @@ main.intro--full-width {
 
 #blocks .block hr {
     margin: 5% 0;
-    border: 1px dashed var(--text-inactive);
+    border: 1px solid var(--background2);
 }
 
 .uslugi {
@@ -1199,11 +1224,12 @@ main.intro--full-width {
 .uslugi h2 {
     margin-top: 5%;
     margin-bottom: 3%;
+    color: var(--text-inactive);
 }
 
 .uslugi .block {
-    background-color: var(--primary);
-    border: 1px dashed var(--text-inactive);
+    background-color: var(--messagebar);
+    border: 2px dashed var(--background2);
     padding: 2%;
     border-radius: 5px;
 }
@@ -1211,7 +1237,7 @@ main.intro--full-width {
 .uslugi .block:hover {
     transition: all .5s ease;
     cursor: default;
-    border: 1px dashed var(--text-active);
+    border: 2px solid var(--text-active);
 }
 
 .uslugi .block:hover h3 {
@@ -1220,7 +1246,7 @@ main.intro--full-width {
 }
 
 .uslugi .block:hover hr {
-    border: 1px dashed var(--text-active) !important;
+    border: 1px solid var(--text-inactive) !important;
     transition: all .5s ease;
 }
 
@@ -1252,8 +1278,13 @@ main.intro--full-width {
     background-color: var(--primary);
     margin-top: 7%;
     padding: 2%;
-    border: 1px dashed var(--text-inactive);
+    border: 2px dashed var(--background2);
     border-radius: 5px;
+}
+
+.registerMain .register:hover {
+    border: 2px solid var(--text-active);
+    transition: all .5s ease;
 }
 
 .registerMain .exit p {
@@ -1387,7 +1418,7 @@ input:-webkit-autofill:focus {
     border: 1px solid var(--text-inactive); 
     border-radius: 10px;
     padding: 2%;
-    background-color: var(--primary);
+    background-color: var(--messagebar);
     width: 96%;
 }
 
@@ -1615,10 +1646,10 @@ input:-webkit-autofill:focus {
 
 .addArticle {
     width: 100%;
-    border: 1px dashed var(--text-inactive);
+    border: 2px dashed var(--background2);
     border-radius: 5px;
     padding: 2%;
-    background-color: var(--primary);
+    background-color: var(--messagebar);
 }
 
 .addArticle h2 {
@@ -1626,8 +1657,21 @@ input:-webkit-autofill:focus {
     margin-top: 0;
 }
 
+.addArticle > h3 {
+    color: var(--text-inactive);
+}
+
+.addArticle h3 i {
+    color: var(--text-inactive);
+}
+
+.addArticle:hover h3 i {
+    color: var(--text-active);
+    transition: all .5s ease;
+}
+
 .addArticle:hover {
-    border: 1px dashed var(--text-active);
+    border: 2px solid var(--text-active);
     transition: all .5s ease;
 }
 
@@ -2294,6 +2338,7 @@ input:-webkit-autofill:focus {
         color: var(--text-inactive);
         display: -webkit-box;
         -webkit-box-orient: vertical;
+        line-clamp: 2;
         -webkit-line-clamp: 2;
         overflow: hidden;
     }
