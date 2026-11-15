@@ -121,11 +121,11 @@
         {% endif %}
         </div>
     </div>
-    <main>
+    <main class='{% block intro_width_class %}{% endblock %}'>
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id='site-footer'>
         <div class="footer-main">
             <section class="footer-about" aria-labelledby="footer-brand">
                 <h2 id="footer-brand" class="footer-brand">Simpy</h2>

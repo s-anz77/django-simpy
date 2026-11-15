@@ -1,8 +1,97 @@
 {% extends "blog/base.html" %}
 
+{% block intro_width_class %}intro--full-width{% endblock %}
+
 {% block title %}Главная{% endblock %}
 {% block content %}
     <div id="intro-page">
-        <h2>Интро страница</h2>
+        <div class='introBlock1'>
+            <div class='introBlock1Content'>
+                <div class='projectBarBox'>
+                    <div class='projectBar'>
+                        <div class='circle'></div>
+                        <p>УЧЕБНЫЙ ПРОЕКТ</p>
+                    </div>
+                </div>
+                <div class='introBlock1main'>
+                    <h2>Место для интересных мыслей</h2>
+                    <p>Читайте статьи, открывайте новых авторов и делитесь собственными идеями.</p>
+                    <div class ='block1Buttons'>
+                        <a href="{% url 'articles' %}" id='block1ArticlesBut'>Читать статьи</a>
+                        <a href="#site-footer" id='block1AboutBut'>О проекте</a>
+                    </div>
+                </div>
+                <div class='introBlock1aside'>
+                    <img src='/static/blog/images/intro-ideas-illustration.png'>
+                </div>
+            </div>
+        </div>
+        <div class='introBlock2'>
+            <div class='introBlock2Content'>
+                <div class="contentBlock2">
+                    <div class="contentBlock2top">
+                        <h3>Публикуйте</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="18px" width="18px"><path d="M11,13H5V11h6V5h2v6h6v2H13v6H11V13Z"/></svg>
+                    </div>
+                    <p>Делитесь своими мыслями и идеями с читателями</p>
+                </div>
+
+                <div class="contentBlock2">
+                    <div class="contentBlock2top">
+                        <h3>Находите</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+                            <path fill="#90B6D5" fill-rule="evenodd" d="M21 13.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5Zm0 2.5a2.75 2.75 0 1 1 0 5.5 2.75 2.75 0 0 1 0-5.5Z" clip-rule="evenodd"/>
+                            <path fill="#90B6D5" d="M12.06 32.07c1.2-4.47 4.74-6.98 8.94-6.98 1.8 0 3.4.38 4.78 1.14l-1.3 2.15c-1.02-.53-2.2-.79-3.48-.79-3.23 0-5.75 1.74-6.72 5.13a1.15 1.15 0 0 1-2.22-.65Z"/>
+                            <path fill="#90B6D5" fill-rule="evenodd" d="M30 21a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm0 2.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" clip-rule="evenodd"/>
+                            <path fill="#90B6D5" d="m33.54 29.77 3.88 3.88a1.25 1.25 0 0 1-1.77 1.77l-3.88-3.88a7 7 0 0 0 1.77-1.77Z"/>
+                        </svg>
+                    </div>
+                    <p>Открывайте для себя авторов и новые темы</p>
+                </div>
+
+                <div class="contentBlock2">
+                    <div class="contentBlock2top">
+                        <h3>Читайте удобно</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+                            <path fill="#90B6D5" fill-rule="evenodd" d="M18 11.25h12a4.25 4.25 0 0 1 4.25 4.25v17A4.25 4.25 0 0 1 30 36.75H18a4.25 4.25 0 0 1-4.25-4.25v-17A4.25 4.25 0 0 1 18 11.25Zm0 2.5a1.75 1.75 0 0 0-1.75 1.75v17A1.75 1.75 0 0 0 18 34.25h12a1.75 1.75 0 0 0 1.75-1.75v-17A1.75 1.75 0 0 0 30 13.75H18Z" clip-rule="evenodd"/>
+                            <path fill="#90B6D5" d="M18.75 19a1.25 1.25 0 0 1 1.25-1.25h8a1.25 1.25 0 0 1 0 2.5h-8A1.25 1.25 0 0 1 18.75 19Zm0 5a1.25 1.25 0 0 1 1.25-1.25h8a1.25 1.25 0 0 1 0 2.5h-8A1.25 1.25 0 0 1 18.75 24Zm0 5a1.25 1.25 0 0 1 1.25-1.25h5a1.25 1.25 0 0 1 0 2.5h-5A1.25 1.25 0 0 1 18.75 29Z"/>
+                        </svg>
+                    </div>
+                    <p>Сайт адаптирован под любые устройства</p>
+                </div>
+            </div>
+        </div>
+        <div class="introBlock2to3"></div>
+        <div class='introBlock3'>
+            <div class='introBlock3Content'>
+                <div class="introBlock3Header">
+                    <h2>Последние статьи</h2>
+                    <a href="{% url 'articles' %}" id='block3ArticlesBut'>
+                        <span>Все статьи</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 24">
+                            <path d="M2 11h37.2l-8.1-7.1 1.6-1.8L46 12l-13.3 9.9-1.6-1.8 8.1-7.1H2z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class='contentBlock3'>
+                    {% for article in latest_news %}
+                        <article>
+                            <h3>{{ article.title }}</h3>
+                            <p>{{ article.text|striptags|linebreaksbr }}</p>
+                            <a href='{% url 'news-detail' article.id %}' class='alt'>Читать далее...</a>
+                            <hr>
+                            <div class="articleInfo">
+                                <img src="{{ article.avtor.profile.img.url }}" alt="{{ article.avtor.username }}">
+                                <small>
+                                    {{ article.date|date:"d.m.Y" }} · <a href='{% url 'user-news' article.avtor %}' id='avtorLink'>{{ article.avtor }}</a>
+                                </small>
+                            </div>
+                        </article>
+                    {% empty %}
+                        <p>Статей пока нет.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

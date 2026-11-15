@@ -89,7 +89,8 @@ class DeleteNewsView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return ctx
 
 def intro(request):
-    return render(request, 'blog/intro.html')
+    latest_news = News.objects.order_by('-date')[:3]
+    return render(request, 'blog/intro.html', {'latest_news': latest_news})
 
 def uslugi(request):
     return render(request, 'blog/uslugi.html')

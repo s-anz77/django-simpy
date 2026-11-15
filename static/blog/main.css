@@ -8,9 +8,10 @@
     --primary: hsl(218, 40%, 4%);
     --messagebar: hsl(217, 41%, 10%);
     --background: hsl(218, 40%, 7%);
+    --background2: hsl(218, 40%, 17%);
     --1: hsl(207, 41%, 39%);
     --2: hsl(207, 45%, 48%);
-    --3: hsl(213, 27%, 84%);
+    --3: hsl(207, 41%, 29%);
     --text-active: hsl(208, 100%, 97%);
     --text-inactive: hsl(0, 0%, 48%);
     --conter-color: hsl(0, 53%, 58%);
@@ -28,9 +29,10 @@
     --primary: #ffffff;
     --messagebar: #f1f5f9;
     --background: hsl(207, 45%, 70%);
+    --background2: hsl(207, 45%, 60%);
     --1: #3a668b;
     --2: #437fb1;
-    --3: #cbd5e1;
+    --3: hsl(207, 41%, 49%);
     --text-active: #172033;
     --text-inactive: #64748b;
     --conter-color: #c03945;
@@ -48,6 +50,10 @@
 /* ------------------------------------------------------------ */
 /* ------------------------Общие стили------------------------- */
 /* ------------------------------------------------------------ */
+
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     margin: 0;
@@ -568,8 +574,399 @@ main a:not(.alt, .art-ref, .art-del) {
     text-decoration: underline;
 }
 
+/* -------------------------------------------------------------- */
+/* ----------------- Приветственная страница -------------------- */
+/* -------------------------------------------------------------- */
+
+main.intro--full-width {
+    width: 100%;
+    max-width: none;
+    padding-inline: 0;
+    display: flex;
+    align-items: start !important;
+    justify-content: start;
+}
+
+#intro-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+:root[data-theme="dark"] #intro-page .introBlock1 {
+    background-image: url("/static/blog/images/intro-hero-background.png");
+}
+
+:root[data-theme="light"] #intro-page .introBlock1 {
+    background-image: url("/static/blog/images/intro-hero-background-light.png");
+}
+
+#intro-page .introBlock1 {
+    background-image: url("/static/blog/images/intro-hero-background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border-bottom: 4px solid var(--background);
+}
+
+#intro-page .introBlock1 .introBlock1Content {
+    width: var(--main-width);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    align-content: center;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+#intro-page .introBlock1 .introBlock1Content .projectBarBox {
+    grid-column: 1 / -1;
+    margin-bottom: 12px;
+    height: fit-content;
+}
+
+#intro-page .introBlock1 .introBlock1Content .projectBar {
+    width: fit-content;
+    border: 1.5px dashed var(--1);
+    border-radius: 10px;
+    background-color: var(--background);
+    padding: 4px 6px 4px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#intro-page .introBlock1 .introBlock1Content .projectBar .circle {
+    height: 8px;
+    width: 8px;
+    border: 0.8px solid var(--1);
+    background-color: var(--2);
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+#intro-page .introBlock1 .introBlock1Content .projectBar p {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--1);
+    white-space: nowrap;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main h2 {
+    font-size: 36px;
+    text-align: left;
+    margin-top: 0%;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main p {
+    color: var(--text-inactive);
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap:2%;
+    margin-top: 3%;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons #block1ArticlesBut {
+    margin: 0;
+    width: 50%;
+    padding: 1% 10px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--1);
+    color: var(--red-but-font);
+    border: 2px solid var(--2);
+    text-align: center;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons #block1ArticlesBut:hover {
+    background-color: var(--3);
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons #block1AboutBut:hover {
+    color: var(--red-but-font);
+    background-color: var(--3);
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons #block1AboutBut {
+    margin: 0;
+    width: 50%;
+    padding: 1% 10px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--background);
+    color: var(--text-inactive);
+    border: 2px solid var(--text-inactive);
+    text-align: center;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1aside {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#intro-page .introBlock1 .introBlock1Content .introBlock1aside img {
+    height: 200px;
+    width: 200px;
+    border: 1px dashed var(--1);
+    background-color: var(--background);
+    border-radius: 5px;
+}
+
+#intro-page .introBlock2 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background2);
+    z-index: 100;
+    /* box-shadow: inset 0px 0px 80px 10px var(--background); */
+}
+
+#intro-page .introBlock2 .introBlock2Content {
+    width: var(--main-width);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3%;
+}
+
+#intro-page .introBlock2 .introBlock2Content .contentBlock2 {
+    position: relative;
+    background-color: var(--messagebar);
+    border: 2px solid var(--background);
+    border-radius: 5px;
+    width: 30%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1%;
+}
+
+#intro-page .introBlock2 .introBlock2Content .contentBlock2 .contentBlock2top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#intro-page .introBlock2 .introBlock2Content .contentBlock2 .contentBlock2top svg * {
+    fill: var(--text-active);
+}
+
+#intro-page .introBlock2 .introBlock2Content .contentBlock2 .contentBlock2top svg {
+    border: 1px solid var(--text-active);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#intro-page .introBlock2 .introBlock2Content .contentBlock2 .contentBlock2top h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 2% 0;
+    padding: 0;
+}
+
+#intro-page .introBlock2 .introBlock2Content .contentBlock2 p {
+    font-size: 14px;
+}
+
+#intro-page .introBlock2to3 {
+    width: 100%;
+    height: 0px;
+    background: linear-gradient(to bottom, var(--background2), var(--background));
+}
+
+#intro-page .introBlock3 {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    border: 0px solid var(--text-active);
+    background-color: var(--background);
+}
+
+#intro-page .introBlock3 .introBlock3Content {
+    width: var(--main-width);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#intro-page .introBlock3 .introBlock3Content .introBlock3Header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#intro-page .introBlock3 .introBlock3Content .introBlock3Header #block3ArticlesBut {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--background);
+    color: var(--red-but-font);
+    border: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+#intro-page .introBlock3 .introBlock3Content .introBlock3Header h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#intro-page .introBlock3 .introBlock3Content .introBlock3Header #block3ArticlesBut span {
+    font-weight: 400;
+    color: var(--text-inactive);
+}
+
+#intro-page .introBlock3 .introBlock3Content .introBlock3Header #block3ArticlesBut svg {
+    height: 10px;
+    margin-left: 4px;
+    fill: var(--text-inactive);
+}
+
+#intro-page .introBlock3 .introBlock3Content .introBlock3Header #block3ArticlesBut:hover span {
+    color: var(--text-active);
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock3 .introBlock3Content .introBlock3Header #block3ArticlesBut:hover svg {
+    transform: translateX(4px);
+    fill: var(--text-active);
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 2%;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article {
+    width: 30%;
+    height: 90%;
+    background-color: var(--messagebar);
+    border: 2px dashed var(--background2);
+    border-radius: 5px;
+    padding: 1%;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article:hover {
+    border: 2px solid var(--text-active);
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article:hover h3 {
+    color: var(--text-active);
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article:hover .articleInfo small #avtorLink {
+    color: var(--text-active);
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article h3 {
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-inactive);
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article p {
+    font-size: 16px;
+    color: var(--text-inactive);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article hr {
+    border: 1px solid var(--text-inactive);
+    margin: 8px 0;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article a {
+    font-weight: 600;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article a.alt:hover {
+    color: var(--conter-color) !important;
+    transition: all .5s ease;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article .articleInfo {
+    display: flex;
+    align-items: center;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article .articleInfo img {
+    height: 40px;
+    width: 40px;
+    border: 1px solid var(--text-inactive);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article .articleInfo small {
+    font-size: 14px;
+    color: var(--text-inactive);
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article .articleInfo small #avtorLink {
+    padding: 0;
+    font-size: 14px;
+    background-color: var(--messagebar);
+    border-radius: 0;
+    text-decoration: underline;
+    color: var(--text-inactive);
+}
+
+#intro-page .introBlock3 .introBlock3Content .contentBlock3 article .articleInfo small #avtorLink:hover {
+    color: var(--conter-color);
+    transition: all .5s ease;
+}
+
 /* ------------------------------------------------------------ */
-/* -------------------Стили главной страницы------------------- */
+/* -----------------Стили страницы со статьями----------------- */
 /* ------------------------------------------------------------ */
 
 .articles {
@@ -1411,7 +1808,7 @@ input:-webkit-autofill:focus {
 
 .footer-about > p:last-child,
 .footer-privacy > p {
-    color: var(--3);
+    color: var(--text-active);
     font-size: 15px;
     line-height: 1.8;
 }
@@ -1705,6 +2102,26 @@ input:-webkit-autofill:focus {
     transition: all .5s ease;
 }
 
+@media (max-width: 1023px) {
+    #intro-page .introBlock1 .introBlock1Content .introBlock1aside {
+        display: none;
+    }
+    #intro-page .introBlock1 .introBlock1Content {
+        grid-template-columns: 1fr;
+    }
+    #intro-page .introBlock1 .introBlock1Content .introBlock1main h2 {
+        width: 100%;
+        text-align: center;
+    }
+    #intro-page .introBlock1 .introBlock1Content .introBlock1main p {
+        width: 100%;
+        text-align: center;
+    }
+    #intro-page .introBlock1 .introBlock1Content .introBlock1main {
+        justify-content: space-around;
+    }
+}
+
 @media (max-width: 900px) {
     :root, :root[data-theme="light"] {
         --main-width: 80%;
@@ -1747,18 +2164,15 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 768px) {
-
-
-    
     h2 {
         font-size: 30px !important;
         overflow-wrap: anywhere;
     }
-    h3 {
+    h3:not(#intro-page .introBlock3 .introBlock3Content .contentBlock3 article h3) {
         font-size: 24px !important;
         overflow-wrap: anywhere;
     }
-    p {
+    p:not(#intro-page .introBlock1 .introBlock1Content .projectBar p, #intro-page .introBlock2 .introBlock2Content .contentBlock2 p, #intro-page .introBlock3 .introBlock3Content .contentBlock3 article p) {
         font-size: 14px !important;
         overflow-wrap: anywhere;
     }
@@ -1781,6 +2195,13 @@ input:-webkit-autofill:focus {
         margin-top: 36px;
         font-size: 12px;
     }
+
+    #intro-page .introBlock2 .introBlock2Content .contentBlock2 .contentBlock2top h3 {
+        font-size: 14px !important;
+    }
+    #intro-page .introBlock2 .introBlock2Content .contentBlock2 p {
+        font-size: 12px !important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1791,6 +2212,107 @@ input:-webkit-autofill:focus {
         padding-right: 5%;
         padding-left: 5%;
     }
+    #intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons #block1ArticlesBut {
+        font-size: 14px;
+    }
+    #intro-page .introBlock1 .introBlock1Content .introBlock1main .block1Buttons #block1AboutBut {
+        font-size: 14px;
+    }
+    #intro-page .introBlock1 .introBlock1Content .projectBar .circle {
+        height: 6px;
+        width: 6px;
+    }
+
+    #intro-page .introBlock1 .introBlock1Content .projectBar p {
+        font-size: 8px;
+        font-weight: 600;
+    }
+
+    #intro-page .introBlock2 {
+        height: 300px;
+    }
+
+    #intro-page .introBlock2 .introBlock2Content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        gap: 0%;
+    }
+
+    #intro-page .introBlock2 .introBlock2Content .contentBlock2 {
+        width: 100%;
+        height: 22%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4px;
+    }
+
+    #intro-page .introBlock3 {
+        height: 620px;
+        align-items: start;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content {
+        height: 100%;
+        justify-content: start;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .introBlock3Header {
+        height: 40px;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .introBlock3Header h2 {
+        font-size: 24px !important;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .contentBlock3 {
+        width: 100%;
+        height: 560px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2%;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .contentBlock3 article {
+        width: 100%;
+        height: 26%;
+        background-color: var(--messagebar);
+        border: 2px dashed var(--background2);
+        border-radius: 5px;
+        padding: 1%;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .contentBlock3 article p {
+        font-size: 16px;
+        color: var(--text-inactive);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 426px) {
+    #intro-page .introBlock2 .introBlock2Content .contentBlock2 .contentBlock2top svg {
+        border: 1px solid var(--text-active);
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .introBlock3Header h2 {
+        font-size: 20px !important;
+    }
 }
 
 @media (max-width: 360px) {
@@ -1798,13 +2320,26 @@ input:-webkit-autofill:focus {
         font-size: 26px !important;
         overflow-wrap: anywhere;
     }
-    h3 {
+    h3:not(#intro-page .introBlock3 .introBlock3Content .contentBlock3 article h3) {
         font-size: 18px !important;
         overflow-wrap: anywhere;
     }
-    p {
+    p:not(#intro-page .introBlock1 .introBlock1Content .projectBar p, #intro-page .introBlock3 .introBlock3Content .contentBlock3 article p) {
         font-size: 12px !important;
         overflow-wrap: anywhere;
+    }
+    #intro-page .introBlock3 .introBlock3Content .introBlock3Header h2 {
+        font-size: 18px !important;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .introBlock3Header #block3ArticlesBut span {
+        font-size: 14px;
+    }
+
+    #intro-page .introBlock3 .introBlock3Content .introBlock3Header #block3ArticlesBut svg {
+        height: 8px;
+        margin-left: 3px;
+        fill: var(--text-inactive);
     }
 }
 
