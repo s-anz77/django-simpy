@@ -58,9 +58,20 @@ Open <http://127.0.0.1:8000/>.
 
 ## Configuration
 
-The project uses SQLite at `db.sqlite3`. Django settings currently define the secret key and debug setting in `firstdjangoproject/settings.py`; no `.env` file or environment variable configuration is provided by the project.
+The project uses SQLite (`db.sqlite3`) as its database.
 
-Uploaded profile images are stored under `media/` during local development. The deployment `Procfile` runs `collectstatic` and starts Gunicorn.
+The following environment variables are used to configure Django:
+
+| Variable | Description | Default |
+|---|---|---|
+| `DJANGO_SECRET_KEY` | Django secret key | Required |
+| `DJANGO_DEBUG` | Enables or disables debug mode | `false` |
+
+The application requires `DJANGO_SECRET_KEY` to be set in the environment. If it is missing, Django raises a configuration error.
+
+For Railway deployment, configure these variables in the service's **Variables** settings. Never commit secret values to the repository.
+
+Uploaded profile images are stored in the `media/` directory during local development.
 
 ## Project structure
 
