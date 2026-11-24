@@ -45,6 +45,21 @@ macOS/Linux:
 ```bash
 source .venv/bin/activate
 ```
+Set the required Django secret key before running the application:
+
+Windows PowerShell:
+
+```powershell
+$env:DJANGO_SECRET_KEY = "replace-with-a-local-secret"
+$env:DJANGO_DEBUG = "true"
+```
+
+macOS/Linux:
+
+```bash
+export DJANGO_SECRET_KEY="replace-with-a-local-secret"
+export DJANGO_DEBUG=true
+```
 
 Install dependencies and initialize the database:
 
